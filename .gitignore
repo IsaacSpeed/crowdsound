@@ -31,3 +31,16 @@
 
 # "temporary" build files
 /target
+
+# eclipse #
+#####################
+.settings
+.classpath
+.project
+target-eclipse
+
+# intelli-j #
+#####################
+.idea
+.idea/*
+*.iml
