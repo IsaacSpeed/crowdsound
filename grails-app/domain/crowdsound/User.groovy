@@ -1,6 +1,6 @@
 package crowdsound
 
-class Test {
+class User {
 
     static constraints = {
     }
