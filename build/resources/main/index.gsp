@@ -2,78 +2,97 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Welcome to Grails</title>
+    <title>CrowdSound</title>
 
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
+    <script>
+        $("#app").ready(function(){
+            $("#hostLogin").hide();
+            $("#userLogin").hide();
+            $("#hostButton").click(function(){
+                $("#hostOrUser").hide();
+                $("#hostLogin").show();
+            });
+            $("#userButton").click(function(){
+                $("#hostOrUser").hide();
+                $("#userLogin").show();
+            });
+            $('#hostLogin').click(function(){
+            });
+        });
+    </script>
 </head>
 <body>
-    <content tag="nav">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Environment: ${grails.util.Environment.current.name}</a></li>
-                <li><a href="#">App profile: ${grailsApplication.config.grails?.profile}</a></li>
-                <li><a href="#">App version:
-                    <g:meta name="info.app.version"/></a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Grails version:
-                    <g:meta name="info.app.grailsVersion"/></a>
-                </li>
-                <li><a href="#">Groovy version: ${GroovySystem.getVersion()}</a></li>
-                <li><a href="#">JVM version: ${System.getProperty('java.version')}</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Controllers: ${grailsApplication.controllerClasses.size()}</a></li>
-                <li><a href="#">Domains: ${grailsApplication.domainClasses.size()}</a></li>
-                <li><a href="#">Services: ${grailsApplication.serviceClasses.size()}</a></li>
-                <li><a href="#">Tag Libraries: ${grailsApplication.tagLibClasses.size()}</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Installed Plugins <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-                    <li><a href="#">${plugin.name} - ${plugin.version}</a></li>
-                </g:each>
-            </ul>
-        </li>
-    </content>
 
-    <div class="svg" role="presentation">
-        <div class="grails-logo-container">
-            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
+    <!-- Header -->
+    <section id="header">
+        <div class="inner">
+            <span class="icon major fa-cloud"></span>
+            <h1>Welcome to <strong>CrowdSound</strong>.</h1>
+            <p>We're working on making this app dope af, stay tuned.</p>
         </div>
-    </div>
-
-    <div id="content" role="main">
-        <section class="row colset-2-its">
-            <h1>Welcome to Grails</h1>
-
-            <p>
-                Congratulations, you have successfully started your first Grails application! At the moment
-                this is the default page, feel free to modify it to either redirect to a controller or display
-                whatever content you may choose. Below is a list of controllers that are currently deployed in
-                this application, click on each to execute its default action:
-            </p>
-
-            <div id="controllers" role="navigation">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller">
-                            <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-                        </li>
-                    </g:each>
-                </ul>
+    </section>
+    <section id="app">
+        <section id="hostOrUser" class="main style1">
+            <div class="container">
+                <div class="row 150%">
+                    <div class="6u 12u$(medium)">
+                        <a id="hostButton" class="button">Host a Party</a>
+                        <p>or</p>
+                        <a id="userButton" class="button">Join One</a>
+                    </div>
+                </div>
             </div>
         </section>
-    </div>
-
+        <section id="hostLogin" class="main style1">
+            <div class="container">
+                <div class="row 150%">
+                    <div class="6u 12u$(medium)">
+                    <!--
+                    <g:form controller="Spotify" action="auth">
+                        <input type="text" id="hostUsername" name="username" placeholder="username"><br>
+                        <input type="password" id="hostPassword" name="password" placeholder="password"><br>
+                        <g:actionSubmit value="Sign In"/>
+                    </g:form>
+                    -->
+                        <g:form controller="person" action="save">
+                            <label>First Name: </label>
+                            <g:textField name="firstName"/><br/>
+                            <label>Last Name: </label>
+                            <g:textField name="lastName"/><br/>
+                            <label>Age: </label>
+                            <g:textField name="age"/><br/>
+                            <g:actionSubmit value="Save"/>
+                        </g:form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="userLogin" class="main style1">
+            <div class="container">
+                <div class="row 150%">
+                    <div class="6u 12u$(medium)">
+                        <form>
+                            <input type="text" id="userCode" placeholder="Enter a Party Code"><br>
+                            <input type="submit" value="Let's Party!">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- Footer -->
+    <section id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Colin, Daniel, Isaac, Steven</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </section>
 </body>
 </html>

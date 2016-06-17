@@ -6,6 +6,9 @@
     <g:if env="development"><asset:stylesheet src="main.css"/></g:if>
 </head>
 <body>
-<p>AUTHORIZE!!</p>
+<g:form controller="auth" action="save">
+    <Label>Token: </Label>
+    <g:textfield name="token"/>
+</g:form>
 </body>
 </html>
