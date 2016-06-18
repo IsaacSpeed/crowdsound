@@ -26,11 +26,7 @@
 
     <!-- Header -->
     <section id="header">
-        <div class="inner">
-            <span class="icon major fa-cloud"></span>
-            <h1>Welcome to <strong>CrowdSound</strong>.</h1>
-            <p>We're working on making this app dope af, stay tuned.</p>
-        </div>
+            <h1><strong>CrowdSound</strong></h1>
     </section>
     <section id="app">
         <section id="hostOrUser" class="main style1">
@@ -48,22 +44,12 @@
             <div class="container">
                 <div class="row 150%">
                     <div class="6u 12u$(medium)">
-                    <!--
-                    <g:form controller="Spotify" action="auth">
+                    <g:form controller="Auth" action="save">
+                        <h3>Login with your Spotify account:</h3>
                         <input type="text" id="hostUsername" name="username" placeholder="username"><br>
                         <input type="password" id="hostPassword" name="password" placeholder="password"><br>
-                        <g:actionSubmit value="Sign In"/>
+                        <g:actionSubmit value="Sign In" action="save"/>
                     </g:form>
-                    -->
-                        <g:form controller="person" action="save">
-                            <label>First Name: </label>
-                            <g:textField name="firstName"/><br/>
-                            <label>Last Name: </label>
-                            <g:textField name="lastName"/><br/>
-                            <label>Age: </label>
-                            <g:textField name="age"/><br/>
-                            <g:actionSubmit value="Save"/>
-                        </g:form>
                     </div>
                 </div>
             </div>
