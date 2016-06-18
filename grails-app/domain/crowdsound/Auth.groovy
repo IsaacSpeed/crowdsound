@@ -7,7 +7,7 @@ import com.wrapper.spotify.models.RefreshAccessTokenCredentials
 
 class Auth {
     // should we not include accessToken and instead just return it? idk
-    String accessToken
+    //String accessToken
     String refreshToken
     String userId
 
@@ -20,7 +20,7 @@ class Auth {
         api.setAccessToken(accessToken)
         api.setRefreshToken(refreshToken)
 
-        username = api.getMe().build().get().getId()
+        userId = api.getMe().build().get().getId()
     }
 
     public String authorize() {
@@ -32,12 +32,10 @@ class Auth {
             api.setRefreshToken(refreshToken)
             refreshCredentials = api.refreshAccessToken().build().get()
 
-            accessToken = refreshCredentials.getAccessToken()
+            return refreshCredentials.getAccessToken()
         } catch (BadRequestException e) {
             return e.getMessage()
         }
-
-        return accessToken
     }
 
     public String authorize(String code) {
@@ -48,15 +46,14 @@ class Auth {
             AuthorizationCodeCredentials authCredentials
             authCredentials = api.authorizationCodeGrant(code).build().get()
 
-            accessToken = authCredentials.getAccessToken()
             refreshToken = authCredentials.getRefreshToken()
+            return authCredentials.getAccessToken()
         } catch (BadRequestException e) {
             return e.getMessage()
         }
-
-        return accessToken
     }
 
     static constraints = {
+        userId unique: true
     }
 }
