@@ -17,7 +17,8 @@ class Auth {
 
 
         SpotifyWrapper wrapper = new SpotifyWrapper()
-        Api api = wrapper.getApi().setAccessToken(accessToken)
+        Api api = wrapper.getApi()
+        api.setAccessToken(accessToken)
         api.setRefreshToken(refreshToken)
 
         username = api.getMe().build().get().getDisplayName()
