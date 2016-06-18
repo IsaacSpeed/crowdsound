@@ -1,6 +1,7 @@
 package crowdsound
 
 import com.wrapper.spotify.Api
+import com.wrapper.spotify.exceptions.BadRequestException
 import com.wrapper.spotify.models.AuthorizationCodeCredentials
 import com.wrapper.spotify.models.RefreshAccessTokenCredentials
 
@@ -30,17 +31,25 @@ class Auth {
         final Api api = wrapper.getApi()
 
         if (!refreshToken) {
-            AuthorizationCodeCredentials authCredentials
-            authCredentials = api.authorizationCodeGrant(code).build().get()
+            try {
+                AuthorizationCodeCredentials authCredentials
+                authCredentials = api.authorizationCodeGrant(code).build().get()
 
-            accessToken = authCredentials.getAccessToken()
-            refreshToken = authCredentials.getRefreshToken()
+                accessToken = authCredentials.getAccessToken()
+                refreshToken = authCredentials.getRefreshToken()
+            } catch (BadRequestException e) {
+                return e.getMessage()
+            }
         } else {
-            RefreshAccessTokenCredentials refreshCredentials
-            api.setRefreshToken(refreshToken)
-            refreshCredentials = api.refreshAccessToken().build().get()
+            try {
+                RefreshAccessTokenCredentials refreshCredentials
+                api.setRefreshToken(refreshToken)
+                refreshCredentials = api.refreshAccessToken().build().get()
 
-            accessToken = refreshCredentials.getAccessToken()
+                accessToken = refreshCredentials.getAccessToken()
+            } catch (BadRequestException e) {
+                return e.getMessage()
+            }
         }
 
         return accessToken
