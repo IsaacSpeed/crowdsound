@@ -1,8 +1,10 @@
 package crowdsound
 
 class Auth {
-    String token
+    String username
+    String password
     static constraints = {
-        token: blank: false
+        username nullable: false
+        password nullable: false
     }
 }
