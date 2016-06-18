@@ -18,9 +18,9 @@ class AuthController {
         Random rand = new Random(System.currentTimeMillis())
 
         def passChars = (0..6).collect { pool[rand.nextInt(pool.size())] }
-        def code = passChars.join()
-        println code
-        [code:code]
+        def partyCode = passChars.join()
+        println partyCode
+        [code:partyCode]
     }
 
 }

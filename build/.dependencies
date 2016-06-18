@@ -9,6 +9,8 @@ dependencies:
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/org.grails.plugins/scaffolding/3.2.1/82b56d19aff8da7818a17e723c8a49f7499caf26/scaffolding-3.2.1.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/org.grails.plugins/hibernate4/6.0.0.M1/ccdcac3ea82b0b2414472ba053a26b82cb3b3832/hibernate4-6.0.0.M1.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-ehcache/4.3.11.Final/cea0e6aba102c00cf899bd547c338fcf54468433/hibernate-ehcache-4.3.11.Final.jar
+- file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/com.github.groovy-wslite/groovy-wslite/1.1.3/aa57522517996c2539875cdf8f4c7a9debbd4863/groovy-wslite-1.1.3.jar
+- file:/C:/Users/is046078/.m2/repository/se/michaelthelin/spotify/spotify-web-api-java/1.5.0/spotify-web-api-java-1.5.0.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/com.bertramlabs.plugins/asset-pipeline-grails/2.8.2/97bceaa633ee9f01b272e0b7fe9d960309ae43ab/asset-pipeline-grails-2.8.2.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/com.h2database/h2/1.4.191/dec3540178ea889b2871b0ed56db14bbec9cfdfc/h2-1.4.191.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.39/4617fe8dc8f1969ec450984b0b9203bc8b7c8ad5/mysql-connector-java-5.1.39.jar
@@ -56,6 +58,11 @@ dependencies:
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/org.jboss.logging/jboss-logging-annotations/1.2.0.Beta1/2f437f37bb265d9f8f1392823dbca12d2bec06d6/jboss-logging-annotations-1.2.0.Beta1.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-core/4.3.11.Final/536ac0021240d97db99c7d2983067cef1a6f3af5/hibernate-core-4.3.11.Final.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/net.sf.ehcache/ehcache-core/2.4.3/fd258ef6959f27fb678b04f90139ded4588e2d15/ehcache-core-2.4.3.jar
+- file:/C:/Users/is046078/.m2/repository/org/codehaus/groovy/groovy-all/2.4.6/groovy-all-2.4.6.jar
+- file:/C:/Users/is046078/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar
+- file:/C:/Users/is046078/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar
+- file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/net.sf.json-lib/json-lib/2.4/136743e0d12df4e785e62b48618cee169b2ae546/json-lib-2.4-jdk15.jar
+- file:/C:/Users/is046078/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/org.mozilla/rhino/1.7R4/e982f2136574b9a423186fbaeaaa98dc3e5a5288/rhino-1.7R4.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/com.bertramlabs.plugins/asset-pipeline-core/2.8.2/2a271f735f8ddd87dcc000ec1fba306b8504f428/asset-pipeline-core-2.8.2.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/cglib/cglib/2.2.2/a47a971686474124562bdd4a7ccbd8ac8c3e8b11/cglib-2.2.2.jar
@@ -112,6 +119,8 @@ dependencies:
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/org.jboss.spec.javax.transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/1f9fef7a9fcbb41cc390fc370a291cf30729e094/jboss-transaction-api_1.2_spec-1.0.0.Final.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/antlr/antlr/2.7.7/83cd2cd674a217ade95a4bb83a8a14f351f48bd0/antlr-2.7.7.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/org.jboss/jandex/1.1.0.Final/e84a2122e76f0b6503be78094ddf2108057ac15f/jandex-1.1.0.Final.jar
+- file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.9.2/7a87d845ad3a155297e8f67d9008f4c1e5656b71/commons-beanutils-1.9.2.jar
+- file:/C:/Users/is046078/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/com.google.javascript/closure-compiler/v20151015/8e20293908bc676ad6ed2013a4f52728b87af460/closure-compiler-v20151015.jar
 - file:/C:/Users/is046078/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-test/2.4.6/b185462b630df82768b8f3c444894af98964c9bf/groovy-test-2.4.6.jar
@@ -125,7 +134,6 @@ dependencies:
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/org.gebish/geb-core/0.12.2/df0c0c35ea76e74e0805e7f731fd01d0f67e3440/geb-core-0.12.2.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/cglib/cglib-nodep/2.1_3/58d3be5953547c0019e5704d6ed4ffda3b0c7c66/cglib-nodep-2.1_3.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-api/2.47.1/f586a13419a297427f01266c1013117232808373/selenium-api-2.47.1.jar
-- file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-exec/1.3/8dfb9facd0830a27b1b5f29f84593f0aeee7773b/commons-exec-1.3.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/4.1.0/1c12d070e602efd8021891cdd7fd18bc129372d4/jna-4.1.0.jar
 - file:/C:/Users/is046078/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna-platform/4.1.0/23457ad1cf75c2c16763330de5565a0e67b4bc0a/jna-platform-4.1.0.jar

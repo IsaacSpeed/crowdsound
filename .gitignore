@@ -31,6 +31,9 @@
 
 # "temporary" build files
 /target
+/build
+/classes
+/.gradle
 
 # eclipse #
 #####################
