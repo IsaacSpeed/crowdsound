@@ -1,3 +1,4 @@
+<%@ page import="crowdsound.AuthController" %>
 <!doctype html>
 <html>
 <head>
@@ -48,12 +49,9 @@
 <!-- Header -->
 <section id="header">
     <div class="inner">
-        <h1><strong>CrowdSound</strong></h1>
+        <h3>Your party code is:</h3>
+        <h1><strong>${code}</strong></h1>
     </div>
-</section>
-<section id="codeDisplay">
-    <h3>Your party code is:</h3>
-    <h1>${auth.generateCode()}</h1>
 </section>
 <section id="artistGenreChoice">
     <section id="musicSubmission" class="main style1">
