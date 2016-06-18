@@ -12,8 +12,7 @@ class Auth {
     String userId
 
     public Auth(String authCode) {
-        authorize(authCode)
-
+        String accessToken = authorize(authCode)
 
         SpotifyWrapper wrapper = new SpotifyWrapper()
         Api api = wrapper.getApi()
