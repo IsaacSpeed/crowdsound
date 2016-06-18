@@ -6,7 +6,6 @@ import com.wrapper.spotify.models.AuthorizationCodeCredentials
 import com.wrapper.spotify.models.RefreshAccessTokenCredentials
 
 class Auth {
-    String token
     String accessToken
     String refreshToken
     String code
