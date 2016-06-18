@@ -1,6 +1,5 @@
 package crowdsound
 
-import com.google.common.util.concurrent.SettableFuture
 import com.wrapper.spotify.Api
 import com.wrapper.spotify.models.AuthorizationCodeCredentials
 import com.wrapper.spotify.models.RefreshAccessTokenCredentials
@@ -21,7 +20,7 @@ class Auth {
         Api api = wrapper.getApi().setAccessToken(accessToken)
         api.setRefreshToken(refreshToken)
 
-        username = api.getMe().build().get().displayName()
+        username = api.getMe().build().get().getDisplayName()
 
     }
 

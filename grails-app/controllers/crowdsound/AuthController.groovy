@@ -7,7 +7,7 @@ class AuthController {
     }
 
     def save() {
-        def code = params.code
+        String code = params.code
         Auth auth = new Auth(code)
         auth.save()
 
