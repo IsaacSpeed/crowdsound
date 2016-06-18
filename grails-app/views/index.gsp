@@ -46,10 +46,7 @@
                     <div class="6u 12u$(medium)">
                     <g:form controller="Auth" action="save">
                         <h3>Login with your Spotify account:</h3>
-                        <input type="text" id="hostUsername" name="username" placeholder="username"><br>
-                        <input type="password" id="hostPassword" name="password" placeholder="password"><br>
-                        <g:actionSubmit value="Sign In" action="save"/>
-                    </g:form>
+                        <a href="https://accounts.spotify.com/authorize?client_id=cfa363d44d2743ab8f6dd82a6e7eaca8&response_type=code&redirect_uri=http://crowdsound.us/auth/save&scope=playlist-modify-private playlist-read-private"><strong>Login</strong></a>
                     </div>
                 </div>
             </div>

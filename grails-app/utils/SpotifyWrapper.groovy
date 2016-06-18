@@ -1,5 +1,5 @@
-import com.wrapper.spotify.models.*;
-import com.wrapper.spotify.methods.*;
+import com.wrapper.spotify.models.*
+import com.wrapper.spotify.methods.*
 
 class SpotifyWrapper {
 

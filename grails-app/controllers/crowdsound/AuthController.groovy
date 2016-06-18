@@ -7,9 +7,12 @@ class AuthController {
     }
 
     def save() {
-        def username = params.username
-        def password = params.password
-        println "User: " + username + " Pass: " + password
+        def code = params.code
+        Auth auth = new Auth(code)
+        auth.save()
+        //def username = params.username
+        //def password = params.password
+        //println "User: " + username + " Pass: " + password
 
         def pool = ['A'..'Z',0..9].flatten()
         Random rand = new Random(System.currentTimeMillis())

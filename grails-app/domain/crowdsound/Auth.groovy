@@ -1,10 +1,16 @@
 package crowdsound
 
 class Auth {
+    String token
+    String refreshToken
+    String code
     String username
-    String password
+
+    public Auth(String authCode) {
+        code = authCode
+
+    }
     static constraints = {
-        username nullable: false
-        password nullable: false
+        code nullable: false
     }
 }
