@@ -8,11 +8,11 @@ import com.wrapper.spotify.models.RefreshAccessTokenCredentials
 class Auth {
     String accessToken
     String refreshToken
-    String code
+    //String code
     String username
 
     public Auth(String authCode) {
-        code = authCode
+        String code = authCode
         authorize()
 
 
