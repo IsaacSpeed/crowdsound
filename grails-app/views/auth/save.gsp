@@ -60,6 +60,7 @@
         <div class="container">
             <div class="row 150%">
                 <div class="6u 12u$(medium)">
+                    <p>${errors}</p>
                     <form>
                         <h3>What's your name?</h3>
                         <input type="text" id="nickname" placeholder="It doesn't have to be your real name!"><br>
