@@ -17,7 +17,7 @@ class AuthController {
         def passChars = (0..6).collect { pool[rand.nextInt(pool.size())] }
         def partyCode = passChars.join()
         println partyCode
-        [code:partyCode, username:auth.username, token:auth, errors: auth.errors.getAllErrors()]
+        [code:partyCode, username:auth.userId, token:auth, errors: auth.errors.getAllErrors()]
     }
 
 }
