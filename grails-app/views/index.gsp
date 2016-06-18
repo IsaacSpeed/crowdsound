@@ -44,11 +44,11 @@
             <div class="container">
                 <div class="row 150%">
                     <div class="6u 12u$(medium)">
-                    <g:form controller="Auth" action="save">
+                    <g:form controller="Auth" action="authHost">
                         <h3>Login with your Spotify account:</h3>
                         <input type="text" id="hostUsername" name="username" placeholder="username"><br>
                         <input type="password" id="hostPassword" name="password" placeholder="password"><br>
-                        <g:actionSubmit value="Sign In" action="save"/>
+                        <g:actionSubmit value="Sign In" action="authHost"/>
                     </g:form>
                     </div>
                 </div>
@@ -58,10 +58,10 @@
             <div class="container">
                 <div class="row 150%">
                     <div class="6u 12u$(medium)">
-                        <form>
-                            <input type="text" id="userCode" placeholder="Enter a Party Code"><br>
-                            <input type="submit" value="Let's Party!">
-                        </form>
+                        <g:form controller="Auth" action="authUser">
+                            <input type="text" id="userCode" name="userCode" placeholder="Enter a Party Code"><br>
+                            <g:actionSubmit value="Join" action="authUser"/>
+                        </g:form>
                     </div>
                 </div>
             </div>
