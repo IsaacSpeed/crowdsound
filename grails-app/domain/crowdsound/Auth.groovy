@@ -8,12 +8,10 @@ import com.wrapper.spotify.models.RefreshAccessTokenCredentials
 class Auth {
     String accessToken
     String refreshToken
-    //String code
     String username
 
     public Auth(String authCode) {
-        String code = authCode
-        authorize()
+        authorize(authCode)
 
 
         SpotifyWrapper wrapper = new SpotifyWrapper()
@@ -28,30 +26,36 @@ class Auth {
         SpotifyWrapper wrapper = new SpotifyWrapper()
         final Api api = wrapper.getApi()
 
-        if (!refreshToken) {
-            try {
-                AuthorizationCodeCredentials authCredentials
-                authCredentials = api.authorizationCodeGrant(code).build().get()
+        try {
+            RefreshAccessTokenCredentials refreshCredentials
+            api.setRefreshToken(refreshToken)
+            refreshCredentials = api.refreshAccessToken().build().get()
 
-                accessToken = authCredentials.getAccessToken()
-                refreshToken = authCredentials.getRefreshToken()
-            } catch (BadRequestException e) {
-                return e.getMessage()
-            }
-        } else {
-            try {
-                RefreshAccessTokenCredentials refreshCredentials
-                api.setRefreshToken(refreshToken)
-                refreshCredentials = api.refreshAccessToken().build().get()
-
-                accessToken = refreshCredentials.getAccessToken()
-            } catch (BadRequestException e) {
-                return e.getMessage()
-            }
+            accessToken = refreshCredentials.getAccessToken()
+        } catch (BadRequestException e) {
+            return e.getMessage()
         }
 
         return accessToken
     }
+
+    public String authorize(String code) {
+        SpotifyWrapper wrapper = new SpotifyWrapper()
+        final Api api = wrapper.getApi()
+
+        try {
+            AuthorizationCodeCredentials authCredentials
+            authCredentials = api.authorizationCodeGrant(code).build().get()
+
+            accessToken = authCredentials.getAccessToken()
+            refreshToken = authCredentials.getRefreshToken()
+        } catch (BadRequestException e) {
+            return e.getMessage()
+        }
+
+        return accessToken
+    }
+
     static constraints = {
     }
 }
