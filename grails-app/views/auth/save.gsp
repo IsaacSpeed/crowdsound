@@ -51,6 +51,8 @@
     <div class="inner">
         <h3>Your party code is:</h3>
         <h1><strong>${code}</strong></h1>
+        <h1>${username}</h1>
+        <h1>${token}</h1>
     </div>
 </section>
 <section id="artistGenreChoice">
