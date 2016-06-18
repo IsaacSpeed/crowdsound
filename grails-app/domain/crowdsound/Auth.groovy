@@ -6,9 +6,10 @@ import com.wrapper.spotify.models.AuthorizationCodeCredentials
 import com.wrapper.spotify.models.RefreshAccessTokenCredentials
 
 class Auth {
+    // should we not include accessToken and instead just return it? idk
     String accessToken
     String refreshToken
-    String username
+    String userId
 
     public Auth(String authCode) {
         authorize(authCode)
@@ -19,7 +20,7 @@ class Auth {
         api.setAccessToken(accessToken)
         api.setRefreshToken(refreshToken)
 
-        username = api.getMe().build().get().getDisplayName()
+        username = api.getMe().build().get().getId()
     }
 
     public String authorize() {
