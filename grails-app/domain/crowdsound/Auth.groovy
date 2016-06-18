@@ -54,6 +54,5 @@ class Auth {
         return accessToken
     }
     static constraints = {
-        code nullable: false
     }
 }
