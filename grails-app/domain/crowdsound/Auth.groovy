@@ -24,6 +24,8 @@ class Auth {
 
         username = api.getMe().build().get().getDisplayName()
 
+        auth.save()
+
     }
 
     public String authorize() {
