@@ -23,9 +23,6 @@ class Auth {
         api.setRefreshToken(refreshToken)
 
         username = api.getMe().build().get().getDisplayName()
-
-        auth.save()
-
     }
 
     public String authorize() {
