@@ -1,3 +1,6 @@
+package crowdsound
+
+import com.wrapper.spotify.Api
 import com.wrapper.spotify.models.*
 import com.wrapper.spotify.methods.*
 
@@ -12,6 +15,23 @@ class SpotifyWrapper {
      */
     public void generateRecommendations(artistSeed, genreSeed) {
         pass
+    }
+
+    /**
+     * returns an Api set up with our crowdsound application
+     */
+    public Api getApi() {
+        final String clientId = "cfa363d44d2743ab8f6dd82a6e7eaca8"
+        final String clientSecret = "6738da3251614694a8d477b886066a67"
+        final String redirectURI = "http://crowdsound.us/auth/save"
+
+        final Api api = Api.builder()
+            .clientId(clientId)
+            .clientSecret(clientSecret)
+            .redirectURI(redirectURI)
+            .build();
+
+        return api
     }
 
     /**
