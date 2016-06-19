@@ -52,7 +52,7 @@ class SpotifyController {
 
             Party party = Party.findByCode("PJI8LE")
             String songUri = generateSong("PJI8LE")
-            Track song = wrapper.getTrack(songUri)
+            Track song = wrapper.getTrack(songUri.drop(14))
             pushSongToPartyPlaylist("PJI8LE", songUri)
             render "$party likes ${party.genres.toString()}, so we added $song.getName() to their playlist"
 

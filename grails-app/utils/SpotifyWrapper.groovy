@@ -94,9 +94,10 @@ class SpotifyWrapper {
      */
     public Track getTrack(String trackID) {
         final TrackRequest request = api.getTrack(trackID).build();
+        Track track
 
         try {
-            final Track track = request.get();
+            track = request.get();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
