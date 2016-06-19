@@ -32,22 +32,14 @@ class Party {
         isStarted = false
     }
 
-    public void addSong() {
+    public int addSong() {
         println "Adding song..."
         String songUri = generateSong()
         println songUri
         pushSongToPartyPlaylist(songUri)
 
-        if (isStarted) {
-            SpotifyWrapper wrapper = new SpotifyWrapper()
-            int duration = wrapper.getTrack(songUri.drop(14) as String).getDuration()
-            println "Song's length is $duration"
-            Timer timer = new Timer()
-            def task = timer.runAfter(2000) {
-                println "Executing addSong again!"
-                addSong()
-            }
-        }
+        SpotifyWrapper wrapper = new SpotifyWrapper()
+        return wrapper.getTrack(songUri.drop(14) as String).getDuration()
     }
 
     public addArtist(String artist){

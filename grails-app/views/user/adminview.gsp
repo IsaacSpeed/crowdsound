@@ -5,6 +5,26 @@
     <title>CrowdSound</title>
 
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
+
+    <script>
+        addSong();
+
+        function addSong() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://crowdsound.us/party/addSong?partyCode=${partyCode}', true);
+            xhr.send();
+
+            xhr.onreadystatechange = processRequest;
+
+            function processRequest(e) {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var duration = xhr.responseText;
+                    alert(duration);
+                    window.setTimeout(addSong, parseInt(duration - 200));
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -24,6 +44,7 @@
                         <g:hiddenField name="partyCode" value="${params.partyCode}"/>
                         <g:submitButton name="startparty" value="Start the party!"/>
                     </g:form>
+                    <h1 id="songCountdown"></h1>
                     <h1>This page is different from the normal party view, to allow admin privileges</h1>
                     <h2>Information about the party can go here such as:</h2>
                     <p>Other user info</p>

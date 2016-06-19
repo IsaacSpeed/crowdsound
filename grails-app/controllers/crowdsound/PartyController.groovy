@@ -15,12 +15,46 @@ class PartyController {
             if (party) {
                 party.start()
                 party.addSong()
+                party.save()
                 render "Party $partyCode has started!"
             } else {
                 render "Invalid party code"
             }
         } else {
             render "Sorry, partycode not specified"
+        }
+    }
+
+    def addSong() {
+        String partyCode = params.partyCode
+
+        if (partyCode) {
+            Party party = Party.findByCode(partyCode)
+
+            if (party) {
+                int duration = party.addSong()
+                render duration
+            } else {
+                render "Invalid party code"
+            }
+        } else {
+            render "No party code specified"
+        }
+    }
+
+    def isPartyStarted() {
+        String partyCode = params.partyCode
+
+        if (partyCode) {
+            Party party = Party.findByCode(partyCode)
+
+            if (party) {
+                render party.isStarted
+            } else {
+                render "Invalid party code"
+            }
+        } else {
+            render "No party code specified"
         }
     }
 }
