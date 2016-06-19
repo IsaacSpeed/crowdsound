@@ -51,6 +51,7 @@
     <div class="inner">
         <h3>Your party code is:</h3>
         <h1><strong>${code}</strong></h1>
+        <h1>${message}</h1>
     </div>
 </section>
 <section id="artistGenreChoice">
@@ -58,6 +59,7 @@
         <div class="container">
             <div class="row 150%">
                 <div class="6u 12u$(medium)">
+                    <p>${errors}</p>
                     <form>
                         <h3>What's your name?</h3>
                         <input type="text" id="nickname" placeholder="It doesn't have to be your real name!"><br>

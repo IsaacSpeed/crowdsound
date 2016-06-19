@@ -26,11 +26,7 @@
 
     <!-- Header -->
     <section id="header">
-        <div class="inner">
-            <span class="icon major fa-cloud"></span>
-            <h1>Welcome to <strong>CrowdSound</strong>.</h1>
-            <p>We're working on making this app dope af, stay tuned.</p>
-        </div>
+            <h1><strong>CrowdSound</strong></h1>
     </section>
     <section id="app">
         <section id="hostOrUser" class="main style1">
@@ -48,22 +44,8 @@
             <div class="container">
                 <div class="row 150%">
                     <div class="6u 12u$(medium)">
-                    <!--
-                    <g:form controller="Spotify" action="auth">
-                        <input type="text" id="hostUsername" name="username" placeholder="username"><br>
-                        <input type="password" id="hostPassword" name="password" placeholder="password"><br>
-                        <g:actionSubmit value="Sign In"/>
-                    </g:form>
-                    -->
-                        <g:form controller="person" action="save">
-                            <label>First Name: </label>
-                            <g:textField name="firstName"/><br/>
-                            <label>Last Name: </label>
-                            <g:textField name="lastName"/><br/>
-                            <label>Age: </label>
-                            <g:textField name="age"/><br/>
-                            <g:actionSubmit value="Save"/>
-                        </g:form>
+                        <h3>Login with your Spotify account:</h3>
+                        <a href="https://accounts.spotify.com/authorize?client_id=cfa363d44d2743ab8f6dd82a6e7eaca8&response_type=code&redirect_uri=http://crowdsound.us/auth/save&scope=playlist-modify-private playlist-read-private"><button>Login!</button></a>
                     </div>
                 </div>
             </div>
