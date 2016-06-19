@@ -8,9 +8,9 @@
 
 <body>
     <g:each in="${tracks}">
-        <p>Song name: ${it.getName()}</p><br/>
-        <p>Artist: ${it.getArtists()}</p><br/>
-        <p>is explicit? ${it.isExplicit()}</p><br/>
+        <p>Song name: ${it.getName()}</p>
+        <p>Artist: ${it.getArtists().get(0).getName()}</p>
+        <p>is explicit? ${it.isExplicit()}</p>
         <br/>
     </g:each>
 </body>
