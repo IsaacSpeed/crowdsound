@@ -27,6 +27,11 @@ class AuthController {
     def authHost() {
         String partyCode
         String code = params.code
+
+        if (!code) {
+            render "Please log in."
+        }
+
         Auth auth = new Auth(code)
         String message = "Welcome, $auth.userId!"
 
