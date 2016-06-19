@@ -16,16 +16,16 @@
             $("#genre3").hide();
             $("#genre4").hide();
             $("#genre5").hide();
-            $("#artist1").click(function(){
+            $("#artist1").focus(function(){
                 $("#artist2").show();
             });
-            $("#artist2").click(function(){
+            $("#artist2").focus(function(){
                 $("#artist3").show();
             });
-            $("#artist3").click(function(){
+            $("#artist3").focus(function(){
                 $("#artist4").show();
             });
-            $("#artist4").click(function(){
+            $("#artist4").focus(function(){
                 $("#artist5").show();
             });
 
@@ -76,6 +76,7 @@
                         <input type="text" id="genre3" placeholder="Third?"><br>
                         <input type="text" id="genre4" placeholder="Didn't know they had this many genres"><br>
                         <input type="text" id="genre5" placeholder="You've got a broad taste in music"><br>
+                        <g:hiddenField name="partyCode" value="${code}"/>
                         <g:actionSubmit value="Submit" action="adminview"/>
                     </g:form>
                 </div>

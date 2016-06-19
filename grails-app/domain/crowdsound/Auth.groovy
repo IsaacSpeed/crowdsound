@@ -38,7 +38,6 @@ class Auth {
 
             return refreshCredentials.getAccessToken()
         } catch (BadRequestException e) {
-            println e.getMessage()
             return e.getMessage()
         }
     }
