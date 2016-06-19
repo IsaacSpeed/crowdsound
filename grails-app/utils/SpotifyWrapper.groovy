@@ -111,11 +111,8 @@ class SpotifyWrapper {
         final List<SimplePlaylist> playlists
 
         try {
-            println userPlaylistsRequest
             playlists = userPlaylistsRequest.get().getItems()
-            println playlists
         } catch (Exception e) {
-            println e.message
             return null
         }
 
