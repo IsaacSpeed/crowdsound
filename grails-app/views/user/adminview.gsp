@@ -20,6 +20,10 @@
         <div class="container">
             <div class="row 150%">
                 <div class="6u 12u$(medium)">
+                    <g:form controller="party" action="start">
+                        <g:hiddenField name="partyCode" value="${params.partyCode}"/>
+                        <g:submit name="startparty" value="Start the party!"/>
+                    </g:form>
                     <h1>This page is different from the normal party view, to allow admin privileges</h1>
                     <h2>Information about the party can go here such as:</h2>
                     <p>Other user info</p>
