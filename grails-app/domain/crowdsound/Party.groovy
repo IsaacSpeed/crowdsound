@@ -6,6 +6,12 @@ class Party {
     ArrayList<String> artists;
     ArrayList<String> genres;
 
+    static hasMany = [artists: String, genres: String]
+
+    static constraints = {
+        code unique: true
+    }
+
     public Party(String partyCode){
         code = partyCode
         artists = new ArrayList<String>()
@@ -18,8 +24,5 @@ class Party {
 
     public addGenre(String genre){
         genres.add(genre)
-    }
-    static constraints = {
-        code unique: true
     }
 }
