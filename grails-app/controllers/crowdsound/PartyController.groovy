@@ -14,6 +14,7 @@ class PartyController {
 
             if (party) {
                 party.start()
+                party.addSong()
                 render "Party $partyCode has started!"
             } else {
                 render "Invalid party code"
