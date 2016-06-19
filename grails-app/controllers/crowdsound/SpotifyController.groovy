@@ -80,6 +80,11 @@ class SpotifyController {
         Collections.shuffle(party.artists)
         Collections.shuffle(party.genres)
 
+        println party.artists
+        println party.genres
+
+        println wrapper.generateRecommendations(party.artists.take(5), party.genres.take(5))
+
         return wrapper.generateRecommendations(party.artists.take(5), party.genres.take(5)).get(0).getUri()
     }
 
