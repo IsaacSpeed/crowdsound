@@ -1,6 +1,7 @@
 package crowdsound
 
 import com.wrapper.spotify.Api
+import com.wrapper.spotify.models.Track
 
 class SpotifyController {
 
@@ -18,5 +19,17 @@ class SpotifyController {
         String messages = "$userAuth.userId and $accessToken"
 
         return [playlistName: wrapper.getPlaylistByName(userAuth.userId, "My cool playlist yo").getName(), messages: messages]
+    }
+
+    def showRecs() {
+        Auth userAuth = Auth.findByUserId("12182647490")
+        String accessToken = userAuth.authorize()
+
+        SpotifyWrapper wrapper = new SpotifyWrapper()
+        wrapper.setAccessToken(accessToken)
+
+        List<Track> tracks = wrapper.generateRecommendations(["3GJhraAgCA8s8XHENnDsXq"], ["Rock"])
+
+        [tracks: tracks]
     }
 }

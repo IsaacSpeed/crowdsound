@@ -1,11 +1,17 @@
 package crowdsound
 
 import com.wrapper.spotify.Api
+import com.wrapper.spotify.JsonUtil
 import com.wrapper.spotify.models.*
 import com.wrapper.spotify.methods.*
+import wslite.rest.ContentType
+import wslite.rest.RESTClient
+import wslite.rest.RESTClientException
+import wslite.rest.Response
 
 class SpotifyWrapper {
     Api api
+    String accessToken
 
     public SpotifyWrapper() {
         api = getApi()
@@ -18,12 +24,36 @@ class SpotifyWrapper {
      * and matched against similar artists and tracks. If there is sufficient information about
      * the provided seeds, a list of tracks will be returned together with pool size details.
      */
-    public void generateRecommendations(artistSeed, genreSeed) {
-        pass
+    public List<Track> generateRecommendations(artistSeedsArray, genreSeedsArray) {
+        RESTClient client = new RESTClient("https://api.spotify.com/v1/")
+        String endpoint = "recommendations"
+
+        String artistSeeds = artistSeedsArray.take(5).join(',')
+        String genreSeeds = genreSeedsArray.take(5).join(',')
+        Response response
+
+        def queryParams = "?"
+        if (artistSeeds) {
+            queryParams = "${queryParams}seed_artists=$artistSeeds"
+            if (genreSeeds) {
+                queryParams = "${queryParams}&"
+            }
+        }
+        if (genreSeeds) {
+            queryParams = "${queryParams}seed_genres=$genreSeeds"
+        }
+        try {
+            response = client.get(path: "$endpoint$queryParams", headers: ['Authorization': "Bearer $accessToken"])
+        } catch (RESTClientException e) {
+            return null
+        }
+
+        return JsonUtil.createTracks(response.contentAsString)
     }
 
     public void setAccessToken(String accessToken) {
         api.setAccessToken(accessToken)
+        this.accessToken = accessToken
     }
 
     /**
@@ -116,12 +146,8 @@ class SpotifyWrapper {
         final List<SimplePlaylist> playlists
 
         try {
-            println userPlaylistsRequest
             playlists = userPlaylistsRequest.get().getItems()
-            println playlists
         } catch (Exception e) {
-            println api
-            println e.message
             return null
         }
 
