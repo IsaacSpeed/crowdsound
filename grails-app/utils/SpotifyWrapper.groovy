@@ -60,8 +60,8 @@ class SpotifyWrapper {
         return api.searchTracks(name).build().get().getItems().get(0)
     }
 
-    public Track getFirstArtistResultByName(String name) {
-        return api.searchAlbums(name).build().get().getItems().get(0)
+    public Artist getFirstArtistResultByName(String name) {
+        return api.searchArtists(name).build().get().getItems().get(0)
     }
 
     public void setAccessToken(String accessToken) {
