@@ -45,6 +45,8 @@ class SpotifyController {
 
             String trackName = wrapper.getFirstArtistResultByName(params.trackName).getName()
 
+
+
             [trackName: trackName]
         }
     }
@@ -52,7 +54,7 @@ class SpotifyController {
     /**
      * Generate a song based on a party's artists and genres
      * @param partyCode
-     * @return a song's id
+     * @return a song's uri
      */
     private String generateSong(String partyCode) {
         Party party = Party.findByCode(partyCode)
@@ -71,7 +73,7 @@ class SpotifyController {
         Collections.shuffle(party.artists)
         Collections.shuffle(party.genres)
 
-        return wrapper.generateRecommendations(party.artists.take(5), party.genres.take(5)).get(0).getId()
+        return wrapper.generateRecommendations(party.artists.take(5), party.genres.take(5)).get(0).getUri()
     }
 
     public void pushSongToPartyPlaylist(String partyCode, String songId) {
