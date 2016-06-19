@@ -125,7 +125,7 @@ class SpotifyWrapper {
             return null
         }
 
-        Playlist playlist = playlists.find() { it.name.equals(playlistName) }
+        SimplePlaylist playlist = playlists.find() { it.name.equals(playlistName) }
 
         return playlist
     }
