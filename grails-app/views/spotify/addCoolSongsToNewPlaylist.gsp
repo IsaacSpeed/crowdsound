@@ -8,5 +8,6 @@
 
 <body>
     <h1>You just created a playlist called ${playlistName}</h1>
+    <p>Messages: ${messages}</p>
 </body>
 </html>

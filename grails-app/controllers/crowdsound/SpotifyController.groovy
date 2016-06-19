@@ -11,9 +11,8 @@ class SpotifyController {
         SpotifyWrapper wrapper = new SpotifyWrapper()
         boolean success = wrapper.createPlaylist(userAuth.userId, "My cool playlist yo")
 
-        if (success)
-            return [playlistName: wrapper.getPlaylistByName(userAuth.userId, "My cool playlist yo")]
-        else
-            return [playlistName: "Failure haha"]
+        String messages = "$userId and $accessToken"
+
+        return [playlistName: wrapper.getPlaylistByName(userAuth.userId, "My cool playlist yo"), messages: messages]
     }
 }
