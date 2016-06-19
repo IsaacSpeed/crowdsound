@@ -43,6 +43,7 @@ class SpotifyWrapper {
             queryParams = "${queryParams}seed_genres=$genreSeeds"
         }
         try {
+            println "$endpoint$queryParams"
             response = client.get(path: "$endpoint$queryParams", headers: ['Authorization': "Bearer $accessToken"])
         } catch (RESTClientException e) {
             println e.message
