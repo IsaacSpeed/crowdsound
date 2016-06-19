@@ -17,6 +17,10 @@ class SpotifyWrapper {
         pass
     }
 
+    public void setAccessToken(String accessToken) {
+        api.setAccessToken(accessToken)
+    }
+
     /**
      * returns an Api set up with our crowdsound application
      */
