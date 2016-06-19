@@ -42,7 +42,7 @@ class Party {
             int duration = wrapper.getTrack(songUri.drop(14)).getDuration()
             println "Song's length is $duration"
             Timer timer = new Timer()
-            def task = timer.runAfter(duration - 200) {
+            def task = timer.runAfter(2000) {
                 println "Executing addSong again!"
                 addSong()
             }
