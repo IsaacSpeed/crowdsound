@@ -6,8 +6,6 @@ import com.wrapper.spotify.methods.*
 
 class SpotifyWrapper {
 
-    Api api
-
     /**
      * Create a playlist-style listening experience based on seed artists, tracks and genres.
      *
@@ -27,17 +25,15 @@ class SpotifyWrapper {
      * returns an Api set up with our crowdsound application
      */
     public Api getApi() {
-        if (!api) {
-            final String clientId = "cfa363d44d2743ab8f6dd82a6e7eaca8"
-            final String clientSecret = "6738da3251614694a8d477b886066a67"
-            final String redirectURI = "http://crowdsound.us/auth/save"
+        final String clientId = "cfa363d44d2743ab8f6dd82a6e7eaca8"
+        final String clientSecret = "6738da3251614694a8d477b886066a67"
+        final String redirectURI = "http://crowdsound.us/auth/save"
 
-            api = Api.builder()
-                .clientId(clientId)
-                .clientSecret(clientSecret)
-                .redirectURI(redirectURI)
-                .build();
-        }
+        final Api api = Api.builder()
+            .clientId(clientId)
+            .clientSecret(clientSecret)
+            .redirectURI(redirectURI)
+            .build();
 
         return api
     }
