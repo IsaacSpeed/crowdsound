@@ -99,6 +99,24 @@ class SpotifyWrapper {
     }
 
     /**
+     * Get a user's playlist by name. Must be exact match, probablyl
+     */
+    public Playlist getPlaylistByName(String userId, String playlistName) {
+        final UserPlaylistsRequest userPlaylistsRequest = api.getPlaylistsForUser(userId).build()
+        final List<SimplePlaylist> playlists
+
+        try {
+            playlists = userPlaylistsRequest.get().getItems()
+        } catch (Exception e) {
+            return null
+        }
+
+        Playlist playlist = playlists.find() { it.name.equals(playlistName) }
+
+        return playlist
+    }
+
+    /**
      * Add one or more tracks to a user’s playlist.
      */
     public void addTrackToPlaylist(String userID, String playlistID, String trackURI) {
