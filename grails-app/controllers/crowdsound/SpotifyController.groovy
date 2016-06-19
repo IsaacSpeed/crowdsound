@@ -41,7 +41,7 @@ class SpotifyController {
             SpotifyWrapper wrapper = new SpotifyWrapper()
             wrapper.setAccessToken(accessToken)
 
-            String trackName = wrapper.getFirstTrackResultByName(params.trackName).getName()
+            String trackName = wrapper.getFirstArtistResultByName(params.trackName).getName()
 
             [trackName: trackName]
         }
