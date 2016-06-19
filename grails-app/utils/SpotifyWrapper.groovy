@@ -78,7 +78,7 @@ class SpotifyWrapper {
     public Api getApi() {
         final String clientId = "cfa363d44d2743ab8f6dd82a6e7eaca8"
         final String clientSecret = "6738da3251614694a8d477b886066a67"
-        final String redirectURI = "http://crowdsound.us/auth/save"
+        final String redirectURI = "http://crowdsound.us/auth/authHost"
 
         final Api api = Api.builder()
             .clientId(clientId)
