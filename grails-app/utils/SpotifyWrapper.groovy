@@ -115,8 +115,12 @@ class SpotifyWrapper {
         final UserPlaylistsRequest userPlaylistsRequest = api.getPlaylistsForUser(userId).build()
         final List<SimplePlaylist> playlists
 
+        println api.accessToken
+
         try {
+            println userPlaylistsRequest
             playlists = userPlaylistsRequest.get().getItems()
+            println playlists
         } catch (Exception e) {
             return null
         }
