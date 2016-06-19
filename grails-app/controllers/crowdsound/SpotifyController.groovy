@@ -7,7 +7,7 @@ import com.wrapper.spotify.models.Track
 
 class SpotifyController {
 
-    def index() { render "this is an index fam" }
+    def index() { render "this is an index fam." }
 
     def addCoolSongsToNewPlaylist() {
         Auth userAuth = Auth.findByUserId("12182647490")
