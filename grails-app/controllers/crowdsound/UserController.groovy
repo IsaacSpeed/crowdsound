@@ -15,9 +15,20 @@ class UserController {
 
         Party party = Party.findByCode(params.partyCode)
         if (party) {
-            artists.split(',').each { party.addArtist(it) }
+            SpotifyWrapper wrapper = new SpotifyWrapper()
+            wrapper.setAccessToken(Auth.findByPartyCode(party.getCode()).authorize())
+
+            artists.split(',').each {
+                String artistId = wrapper.getFirstArtistResultByName(it)
+                party.addArtist(artistId)
+            }
             genres.split(',').each { party.addGenre(it) }
+
             party.save()
+
+            return [partyCode: party.getCode()]
+        } else {
+            render "ERROR could not find party"
         }
     }
     def adminview() {}
