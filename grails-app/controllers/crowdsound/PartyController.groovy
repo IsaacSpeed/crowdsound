@@ -6,6 +6,8 @@ class PartyController {
 
     def start() {
         String partyCode = params.partyCode
+        println params
+        println partyCode
 
         if (partyCode) {
             Party party = Party.findByCode(partyCode)
