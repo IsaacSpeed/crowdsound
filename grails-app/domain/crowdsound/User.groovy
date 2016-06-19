@@ -3,8 +3,8 @@ package crowdsound
 class User {
     String code
     String nickname
-    ArrayList<String> artists
-    ArrayList<String> genres
+    String artists
+    String genres
     int admin
 
     public User(String c,
