@@ -10,6 +10,7 @@ class Auth {
     //String accessToken
     String refreshToken
     String userId
+    String partyCode
 
     public Auth(String authCode) {
         String accessToken = authorize(authCode)

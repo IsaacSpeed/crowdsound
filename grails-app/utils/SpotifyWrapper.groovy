@@ -173,7 +173,7 @@ class SpotifyWrapper {
      * Add one or more tracks to a user’s playlist.
      */
     public void addTrackToPlaylist(String userID, String playlistID, String trackURI) {
-        final List<String> trackToAdd = trackURI;
+        final List<String> trackToAdd = [trackURI];
 
         final AddTrackToPlaylistRequest request = api.addTracksToPlaylist(userID, playlistID, trackToAdd)
                 .position(-1)

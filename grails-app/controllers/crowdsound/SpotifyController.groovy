@@ -1,6 +1,8 @@
 package crowdsound
 
 import com.wrapper.spotify.Api
+import com.wrapper.spotify.models.Playlist
+import com.wrapper.spotify.models.SimplePlaylist
 import com.wrapper.spotify.models.Track
 
 class SpotifyController {
@@ -45,5 +47,49 @@ class SpotifyController {
 
             [trackName: trackName]
         }
+    }
+
+    /**
+     * Generate a song based on a party's artists and genres
+     * @param partyCode
+     * @return a song's id
+     */
+    private String generateSong(String partyCode) {
+        Party party = Party.findByCode(partyCode)
+        Auth userAuth = Auth.findByPartyCode(partyCode)
+        String accessToken = userAuth.authorize()
+
+        SpotifyWrapper wrapper = new SpotifyWrapper()
+        wrapper.setAccessToken(accessToken)
+
+        // if there's nothing to see with, add a default song....
+        if (!party.artists && !party.genres) {
+            return "7GhIk7Il098yCjg4BQjzvb"
+        }
+
+        // if not, pick five random artists and five random genres
+        Collections.shuffle(party.artists)
+        Collections.shuffle(party.genres)
+
+        return wrapper.generateRecommendations(party.artists.take(5), party.genres.take(5)).get(0).getId()
+    }
+
+    public void pushSongToPartyPlaylist(String partyCode, String songId) {
+        Auth userAuth = Auth.findByPartyCode(partyCode)
+        String accessToken = userAuth.authorize()
+
+        SpotifyWrapper wrapper = new SpotifyWrapper()
+        wrapper.setAccessToken(accessToken)
+
+        SimplePlaylist partyPlaylist = wrapper.getPlaylistByName(userAuth.userId, partyCode)
+
+        // create the playlist if it does not exist
+        if (!partyPlaylist) {
+            wrapper.createPlaylist(userAuth.userId, partyCode)
+        }
+
+        partyPlaylist = wrapper.getPlaylistByName(userAuth.userId, partyCode)
+
+        wrapper.addTrackToPlaylist(userAuth.userId, partyCode, songId)
     }
 }
