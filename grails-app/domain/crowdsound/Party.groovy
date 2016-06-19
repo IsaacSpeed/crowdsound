@@ -83,6 +83,7 @@ class Party {
         List<Track> recommendations = wrapper.generateRecommendations(artists.take(3), genres.take(2))
 
         if (recommendations) {
+            println "Generated recommendations for $code!"
             return recommendations.get(0).getUri()
         } else {
             println "no recs found!!"
@@ -101,10 +102,13 @@ class Party {
 
         // create the playlist if it does not exist
         if (!partyPlaylist) {
+            println "Creating playlist"
             wrapper.createPlaylist(userAuth.userId, code)
         }
 
         partyPlaylist = wrapper.getPlaylistByName(userAuth.userId, code)
+
+        println "Found playlist ${partyPlaylist.getName()}"
 
         wrapper.addTrackToPlaylist(userAuth.userId, partyPlaylist.getId(), songUri)
     }
