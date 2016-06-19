@@ -111,7 +111,7 @@ class SpotifyWrapper {
     /**
      * Get a user's playlist by name. Must be exact match, probablyl
      */
-    public Playlist getPlaylistByName(String userId, String playlistName) {
+    public SimplePlaylist getPlaylistByName(String userId, String playlistName) {
         final UserPlaylistsRequest userPlaylistsRequest = api.getPlaylistsForUser(userId).build()
         final List<SimplePlaylist> playlists
 

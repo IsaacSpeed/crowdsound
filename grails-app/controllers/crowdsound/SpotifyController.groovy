@@ -18,6 +18,6 @@ class SpotifyController {
 
         String messages = "$userAuth.userId and $accessToken"
 
-        return [playlistName: wrapper.getPlaylistByName(userAuth.userId, "My cool playlist yo"), messages: messages]
+        return [playlistName: wrapper.getPlaylistByName(userAuth.userId, "My cool playlist yo").getName(), messages: messages]
     }
 }
