@@ -35,29 +35,27 @@ class SpotifyController {
         [tracks: tracks]
     }
 
-    def findSongs() {
-        if (params.trackName) {
-            Auth userAuth = Auth.findByUserId("12182647490")
+    def generateSongToPlaylist() {
+        String message
+
+        if (params.partyCode) {
+            String partyCode = params.partyCode
+            Auth userAuth = Auth.findByPartyCode(partyCode)
             String accessToken = userAuth.authorize()
 
             SpotifyWrapper wrapper = new SpotifyWrapper()
             wrapper.setAccessToken(accessToken)
 
-            String trackName = wrapper.getFirstArtistResultByName(params.trackName).getName()
-
-            /*Party party1 = new Party(code: "PJI8LE", artists: ["6yhD1KjhLxIETFF7vIRf8B", "6R1T5YklzC9OFugGt8RwOD", "5xKp3UyavIBUsGy3DQdXeF", "6Shas1ACrMl25XHgTrzxeo"],
-                        genres: ["Rock", "Country", "Rap"])
-            party1.save()
-            //render "Party saved"*/
-
-            Party party = Party.findByCode("PJI8LE")
-            String songUri = generateSong("PJI8LE")
+            Party party = Party.findByCode(partyCode)
+            String songUri = generateSong(partyCode)
             String songName = wrapper.getTrack(songUri.drop(14) as String).getName()
-            pushSongToPartyPlaylist("PJI8LE", songUri)
-            render "$party likes ${party.genres.toString()}, so we added $songName to their playlist"
-
-            [trackName: trackName]
+            pushSongToPartyPlaylist(partyCode, songUri)
+            message = "$party likes ${party.genres.toString()} and ${party.artists.toString()}, so we added $songName to their playlist"
+        } else {
+            message = "No party code specified."
         }
+
+        [message: message]
     }
 
     /**
@@ -82,7 +80,14 @@ class SpotifyController {
         Collections.shuffle(party.artists)
         Collections.shuffle(party.genres)
 
-        return wrapper.generateRecommendations(party.artists.take(3), party.genres.take(2)).get(0).getUri()
+        List<Track> recommendations = wrapper.generateRecommendations(party.artists.take(3), party.genres.take(2))
+
+        if (recommendations) {
+            return recommendations.get(0).getUri()
+        } else {
+            println "no recs found!!"
+            return "spotify:track:5i7fZq3chLyCHo3VeB6goD"
+        }
     }
 
     public void pushSongToPartyPlaylist(String partyCode, String songUri) {
