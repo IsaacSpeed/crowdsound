@@ -1847,8 +1847,10 @@
 		line-height: 1em;
 		margin: 0 0 1em 0;
 	}
-
-		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	a.nounderline:link {
+	text-decoration:none;
+	}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 			color: inherit;
 			text-decoration: none;
 		}
@@ -2637,7 +2639,6 @@
 		button.fit,
 		.button.fit {
 			display: block;
-			margin: 0 0 1em 0;
 			width: 100%;
 		}
 
@@ -2739,7 +2740,6 @@
 			.main.style2 input[type="button"],
 			.main.style2 button,
 			.main.style2 .button {
-				box-shadow: inset 0 0 0 1px #ffffff;
 				color: #ffffff !important;
 			}
 
@@ -2765,7 +2765,6 @@
 				.main.style2 button.special,
 				.main.style2 .button.special {
 					background-color: #ffffff;
-					box-shadow: inset 0 0 0 1px #ffffff !important;
 					color: #333 !important;
 				}
 
@@ -2834,7 +2833,6 @@
 		#header input[type="button"],
 		#header button,
 		#header .button {
-			box-shadow: inset 0 0 0 1px #ffffff;
 			color: #ffffff !important;
 		}
 
@@ -2860,7 +2858,6 @@
 			#header button.special,
 			#header .button.special {
 				background-color: #ffffff;
-				box-shadow: inset 0 0 0 1px #ffffff !important;
 				color: #4686a0 !important;
 			}
 
@@ -3019,7 +3016,6 @@
 		#footer input[type="button"],
 		#footer button,
 		#footer .button {
-			box-shadow: inset 0 0 0 1px #ffffff;
 			color: #ffffff !important;
 		}
 
@@ -3045,7 +3041,6 @@
 			#footer button.special,
 			#footer .button.special {
 				background-color: #ffffff;
-				box-shadow: inset 0 0 0 1px #ffffff !important;
 				color: #4686a0 !important;
 			}
 
