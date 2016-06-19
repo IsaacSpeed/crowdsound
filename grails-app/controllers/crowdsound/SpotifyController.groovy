@@ -45,10 +45,10 @@ class SpotifyController {
 
             String trackName = wrapper.getFirstArtistResultByName(params.trackName).getName()
 
-            Party party1 = new Party(code: "PJI8LE", artists: ["6yhD1KjhLxIETFF7vIRf8B", "6R1T5YklzC9OFugGt8RwOD", "5xKp3UyavIBUsGy3DQdXeF", "6Shas1ACrMl25XHgTrzxeo"],
+            /*Party party1 = new Party(code: "PJI8LE", artists: ["6yhD1KjhLxIETFF7vIRf8B", "6R1T5YklzC9OFugGt8RwOD", "5xKp3UyavIBUsGy3DQdXeF", "6Shas1ACrMl25XHgTrzxeo"],
                         genres: ["Rock", "Country", "Rap"])
             party1.save()
-            //render "Party saved"
+            //render "Party saved"*/
 
             Party party = Party.findByCode("PJI8LE")
             render "$party likes ${party.genres.toString()}"
