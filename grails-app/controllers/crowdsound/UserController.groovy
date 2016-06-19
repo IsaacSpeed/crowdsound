@@ -14,6 +14,7 @@ class UserController {
         u.save()
 
         Party party = Party.findByCode(params.partyCode)
+        println params.partyCode
         if (party) {
             SpotifyWrapper wrapper = new SpotifyWrapper()
             wrapper.setAccessToken(Auth.findByPartyCode(party.getCode()).authorize())
