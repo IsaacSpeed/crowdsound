@@ -25,6 +25,7 @@ class Party {
 
     public void start() {
         isStarted = true
+        println "Party started!"
     }
 
     public void end() {
@@ -32,6 +33,7 @@ class Party {
     }
 
     public void addSong() {
+        println "Adding song..."
         String songUri = generateSong()
         pushSongToPartyPlaylist(songUri)
 
@@ -41,6 +43,7 @@ class Party {
             println "Song's length is $duration"
             Timer timer = new Timer()
             def task = timer.runAfter(duration - 200) {
+                println "Executing addSong again!"
                 addSong()
             }
         }
