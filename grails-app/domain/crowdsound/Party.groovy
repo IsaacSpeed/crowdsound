@@ -3,10 +3,10 @@ package crowdsound
 class Party {
 
     String code
-    ArrayList<String> artists;
-    ArrayList<String> genres;
 
     static hasMany = [artists: String, genres: String]
+    List artists
+    List genres
 
     static constraints = {
         code unique: true
