@@ -52,6 +52,7 @@ class AuthController {
 
             Party party = new Party()
             party.code = partyCode
+            party.save()
         }
 
         [code:partyCode, username:auth.userId, errors: auth.errors.getAllErrors(), message: message]
