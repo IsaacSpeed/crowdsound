@@ -50,7 +50,7 @@
 <section id="header">
     <div class="inner">
         <h3>Your party code is:</h3>
-        <h1><strong>TO-DO: GET THIS FROM DATABASE</strong></h1>
+        <h1><strong>${params.userCode}</strong></h1>
     </div>
 </section>
 <section id="artistGenreChoice">
@@ -74,6 +74,7 @@
                         <input type="text" name="g3" id="genre3" placeholder="Third?"><br>
                         <input type="text" name="g4" id="genre4" placeholder="Didn't know they had this many genres"><br>
                         <input type="text" name="g5" id="genre5" placeholder="You've got a broad taste in music"><br>
+                        <g:hiddenField name="userCode" value="${userCode}"/>
                         <g:actionSubmit value="Submit" action="partyview"/>
                     </g:form>
                 </div>
