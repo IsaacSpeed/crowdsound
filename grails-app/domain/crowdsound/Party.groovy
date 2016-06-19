@@ -39,7 +39,8 @@ class Party {
 
         if (isStarted) {
             SpotifyWrapper wrapper = new SpotifyWrapper()
-            int duration = wrapper.getTrack(songUri.drop(14)).getDuration()
+            println songUri
+            int duration = wrapper.getTrack(songUri.drop(14) as String).getDuration()
             println "Song's length is $duration"
             Timer timer = new Timer()
             def task = timer.runAfter(2000) {
