@@ -9,8 +9,8 @@ class User {
 
     public User(String c,
                 String nn,
-                ArrayList<String> ar,
-                ArrayList<String> ge,
+                String ar,
+                String ge,
                 int ad
                 ){
         code = c
