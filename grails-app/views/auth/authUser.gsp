@@ -74,7 +74,7 @@
                         <input type="text" name="g3" id="genre3" placeholder="Third?"><br>
                         <input type="text" name="g4" id="genre4" placeholder="Didn't know they had this many genres"><br>
                         <input type="text" name="g5" id="genre5" placeholder="You've got a broad taste in music"><br>
-                        <g:hiddenField name="userCode" value="${partyCode}"/>
+                        <g:hiddenField name="partyCode" value="${userCode}"/>
                         <g:actionSubmit value="Submit" action="partyview"/>
                     </g:form>
                 </div>

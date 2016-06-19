@@ -27,6 +27,8 @@ class UserController {
 
             party.save()
 
+            println party.artists
+
             return [partyCode: party.getCode()]
         } else {
             render "ERROR could not find party"
