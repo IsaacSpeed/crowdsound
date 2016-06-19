@@ -19,7 +19,11 @@ class Auth {
         api.setAccessToken(accessToken)
         api.setRefreshToken(refreshToken)
 
-        userId = api.getMe().build().get().getId()
+        try {
+            userId = api.getMe().build().get().getId()
+        } catch (Exception e) {
+            println e.message
+        }
     }
 
     public String authorize() {
