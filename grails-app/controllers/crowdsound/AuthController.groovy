@@ -25,6 +25,7 @@ class AuthController {
     }
 
     def authHost() {
+        String partyCode
         String code = params.code
         Auth auth = new Auth(code)
         String message = "Welcome, $auth.userId!"
@@ -33,17 +34,22 @@ class AuthController {
         if (Auth.findByUserId(auth.userId)) {
             auth = Auth.findByUserId(auth.userId)
             message = "Welcome back, $auth.userId!"
+            partyCode = auth.partyCode
         } else {
+            def pool = ['A'..'Z',0..9].flatten()
+            Random rand = new Random(System.currentTimeMillis())
+
+            def passChars = (0..5).collect { pool[rand.nextInt(pool.size())] }
+            partyCode = passChars.join()
+
+            auth.partyCode = partyCode
             auth.save()
+
+            Party party = new Party()
+            party.code = partyCode
         }
 
-        def pool = ['A'..'Z',0..9].flatten()
-        Random rand = new Random(System.currentTimeMillis())
-
-        def passChars = (0..5).collect { pool[rand.nextInt(pool.size())] }
-        def partyCode = passChars.join()
-        println partyCode
-        [code:partyCode, username:auth.userId, token:auth, errors: auth.errors.getAllErrors(), message: message]
+        [code:partyCode, username:auth.userId, errors: auth.errors.getAllErrors(), message: message]
     }
 
 }
