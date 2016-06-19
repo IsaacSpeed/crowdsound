@@ -56,7 +56,8 @@ class SpotifyWrapper {
     /**
      * Create a playlist for a Spotify user. (The playlist will be empty until you add tracks.)
      */
-    public boolean createPlaylist(String userID, String partyCode) {
+    public boolean createPlaylist(String userID, String partyCode, String accessToken) {
+        api.setAccessToken(accessToken)
         println api.accessToken
         final PlaylistCreationRequest request = api.createPlaylist(userID, partyCode)
                 .publicAccess(true)
