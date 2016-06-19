@@ -19,6 +19,8 @@ class AuthController {
         Party party = Party.findByCode(params.userCode)
         if (!party) {
             render "That's not a valid party code!"
+        } else {
+            println party.artists
         }
     }
 

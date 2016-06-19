@@ -14,9 +14,11 @@ class UserController {
         u.save()
 
         Party party = Party.findByCode(params.partyCode)
-        artists.split(',').each { party.addArtist(it) }
-        genres.split(',').each { party.addGenre(it) }
-        party.save()
+        if (party) {
+            artists.split(',').each { party.addArtist(it) }
+            genres.split(',').each { party.addGenre(it) }
+            party.save()
+        }
     }
     def adminview() {}
 }
