@@ -120,6 +120,7 @@ class SpotifyWrapper {
             playlists = userPlaylistsRequest.get().getItems()
             println playlists
         } catch (Exception e) {
+            println api
             println e.message
             return null
         }
