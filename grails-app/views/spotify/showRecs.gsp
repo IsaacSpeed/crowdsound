@@ -7,6 +7,11 @@
 </head>
 
 <body>
-    ${tracks}
+    <g:each in="${tracks}">
+        <p>Song name: ${it.getName()}</p><br/>
+        <p>Artist: ${it.getArtists()}</p><br/>
+        <p>is explicit? ${it.isExplicit()}</p><br/>
+        <br/>
+    </g:each>
 </body>
 </html>
