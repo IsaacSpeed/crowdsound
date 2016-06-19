@@ -7,6 +7,17 @@ class AuthController {
     }
 
     def save() {
+        render "deprecated"
+     }
+
+    def authUser() {
+        def userCode = params.userCode
+        println "User entered PartyCode: " + userCode
+
+        //TODO check partycode against database
+    }
+
+    def authHost() {
         String code = params.code
         Auth auth = new Auth(code)
         String message = "Welcome, $auth.userId!"
@@ -26,13 +37,6 @@ class AuthController {
         def partyCode = passChars.join()
         println partyCode
         [code:partyCode, username:auth.userId, token:auth, errors: auth.errors.getAllErrors(), message: message]
-    }
-
-    def authUser() {
-        def userCode = params.userCode
-        println "User entered PartyCode: " + userCode
-
-        //TODO check partycode against database
     }
 
 }
