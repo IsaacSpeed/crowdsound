@@ -11,8 +11,9 @@ class AuthController {
      }
 
     def authUser() {
-        def userCode = params.userCode
-        println "User entered PartyCode: " + userCode
+        def code = params.userCode
+        def nickname = params
+        println "User entered PartyCode: " + code
 
         //TODO check partycode against database
     }

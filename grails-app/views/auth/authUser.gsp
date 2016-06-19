@@ -60,20 +60,20 @@
                 <div class="6u 12u$(medium)">
                     <g:form controller="User" action="partyview">
                         <h3>What's your name?</h3>
-                        <input type="text" id="nickname" placeholder="It doesn't have to be your real name!"><br>
+                        <input type="text" name="nickname" id="nickname" placeholder="It doesn't have to be your real name!"><br>
                         <h3>Pick your Top 5's</h3>
                         <p>Artists</p>
-                        <input type="text" id="artist1" placeholder="Who's your favorite artist?"><br>
-                        <input type="text" id="artist2" placeholder="Second favorite?"><br>
-                        <input type="text" id="artist3" placeholder="Third?"><br>
-                        <input type="text" id="artist4" placeholder="Fourth?!"><br>
-                        <input type="text" id="artist5" placeholder="You've got a lot of artists in mind"><br>
+                        <input type="text" name="a1" id="artist1" placeholder="Who's your favorite artist?"><br>
+                        <input type="text" name="a2" id="artist2" placeholder="Second favorite?"><br>
+                        <input type="text" name="a3" id="artist3" placeholder="Third?"><br>
+                        <input type="text" name="a4" id="artist4" placeholder="Fourth?!"><br>
+                        <input type="text" name="a5" id="artist5" placeholder="You've got a lot of artists in mind"><br>
                         <p>Genres</p>
-                        <input type="text" id="genre1" placeholder="What's your favorite genre?"><br>
-                        <input type="text" id="genre2" placeholder="Second favorite?"><br>
-                        <input type="text" id="genre3" placeholder="Third?"><br>
-                        <input type="text" id="genre4" placeholder="Didn't know they had this many genres"><br>
-                        <input type="text" id="genre5" placeholder="You've got a broad taste in music"><br>
+                        <input type="text" name="g1" id="genre1" placeholder="What's your favorite genre?"><br>
+                        <input type="text" name="g2" id="genre2" placeholder="Second favorite?"><br>
+                        <input type="text" name="g3" id="genre3" placeholder="Third?"><br>
+                        <input type="text" name="g4" id="genre4" placeholder="Didn't know they had this many genres"><br>
+                        <input type="text" name="g5" id="genre5" placeholder="You've got a broad taste in music"><br>
                         <g:actionSubmit value="Submit" action="partyview"/>
                     </g:form>
                 </div>
