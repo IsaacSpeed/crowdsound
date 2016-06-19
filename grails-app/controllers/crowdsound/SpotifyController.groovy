@@ -70,6 +70,7 @@ class SpotifyController {
 
         SpotifyWrapper wrapper = new SpotifyWrapper()
         wrapper.setAccessToken(accessToken)
+        println "Bearer $accessToken"
 
         // if there's nothing to see with, add a default song....
         if (!party.artists && !party.genres) {
