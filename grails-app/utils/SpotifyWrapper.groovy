@@ -51,6 +51,15 @@ class SpotifyWrapper {
         return JsonUtil.createTracks(response.contentAsString)
     }
 
+    /**
+     * Search for a track by name. It will return the first result
+     * @param name
+     * @return
+     */
+    public Track getFirstTrackResultByName(String name) {
+        return api.searchTracks(name).build().get().getItems().get(0)
+    }
+
     public void setAccessToken(String accessToken) {
         api.setAccessToken(accessToken)
         this.accessToken = accessToken

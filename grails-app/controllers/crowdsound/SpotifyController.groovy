@@ -32,4 +32,18 @@ class SpotifyController {
 
         [tracks: tracks]
     }
+
+    def findSongs() {
+        if (params) {
+            Auth userAuth = Auth.findByUserId("12182647490")
+            String accessToken = userAuth.authorize()
+
+            SpotifyWrapper wrapper = new SpotifyWrapper()
+            wrapper.setAccessToken(accessToken)
+
+            String trackName = wrapper.getFirstTrackResultByName(params.trackName)
+
+            [trackName: trackName]
+        }
+    }
 }
