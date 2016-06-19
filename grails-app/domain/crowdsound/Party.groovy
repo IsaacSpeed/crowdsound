@@ -35,11 +35,11 @@ class Party {
     public void addSong() {
         println "Adding song..."
         String songUri = generateSong()
+        println songUri
         pushSongToPartyPlaylist(songUri)
 
         if (isStarted) {
             SpotifyWrapper wrapper = new SpotifyWrapper()
-            println songUri
             int duration = wrapper.getTrack(songUri.drop(14) as String).getDuration()
             println "Song's length is $duration"
             Timer timer = new Timer()
@@ -111,5 +111,6 @@ class Party {
         println "Found playlist ${partyPlaylist.getName()}"
 
         wrapper.addTrackToPlaylist(userAuth.userId, partyPlaylist.getId(), songUri)
+        println "added song to playlist!"
     }
 }

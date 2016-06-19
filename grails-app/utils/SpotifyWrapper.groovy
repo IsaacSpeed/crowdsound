@@ -186,7 +186,7 @@ class SpotifyWrapper {
         try {
             request.get();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Adding track returned" + e.getMessage());
         }
     }
 
