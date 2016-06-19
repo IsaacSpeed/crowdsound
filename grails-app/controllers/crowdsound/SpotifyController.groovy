@@ -43,7 +43,7 @@ class SpotifyController {
 
             String trackName = wrapper.getFirstTrackResultByName(params.trackName)
 
-            [trackName: trackName]
+            [trackName: trackName.getName()]
         }
     }
 }
