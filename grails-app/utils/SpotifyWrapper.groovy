@@ -5,6 +5,11 @@ import com.wrapper.spotify.models.*
 import com.wrapper.spotify.methods.*
 
 class SpotifyWrapper {
+    Api api
+
+    public SpotifyWrapper() {
+        api = getApi()
+    }
 
     /**
      * Create a playlist-style listening experience based on seed artists, tracks and genres.
