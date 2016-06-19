@@ -1,5 +1,7 @@
 package crowdsound
 
+import crowdsound.SpotifyWrapper
+
 class SpotifyController {
 
     def index() { render "this is an index fam" }
