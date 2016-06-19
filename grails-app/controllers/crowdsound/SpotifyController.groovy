@@ -12,9 +12,8 @@ class SpotifyController {
 
         SpotifyWrapper wrapper = new SpotifyWrapper()
         wrapper.setAccessToken(accessToken)
-        Api api = wrapper.getApi()
-        api.setAccessToken(accessToken)
-        api.createPlaylist(userAuth.userId, "My cool playlist yo").build().get()
+
+        wrapper.createPlaylist(userAuth.userId, "My cool playlist yo")
 
         String messages = "$userAuth.userId and $accessToken"
 
