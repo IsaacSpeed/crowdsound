@@ -46,7 +46,7 @@
                     <div class="6u 12u$(medium)">
                     <g:form controller="Auth" action="authHost">
                         <h3>Login with your Spotify account:</h3>
-                        <a href="https://accounts.spotify.com/authorize?client_id=cfa363d44d2743ab8f6dd82a6e7eaca8&response_type=code&redirect_uri=http://crowdsound.us/auth/save&scope=playlist-modify-private playlist-read-private playlist-modify-public"><button>Login!</button></a>
+                        <a href="https://accounts.spotify.com/authorize?client_id=cfa363d44d2743ab8f6dd82a6e7eaca8&response_type=code&redirect_uri=http://crowdsound.us/auth/authHost&scope=playlist-modify-private playlist-read-private playlist-modify-public"><button>Login!</button></a>
                     </g:form>
                     </div>
                 </div>
