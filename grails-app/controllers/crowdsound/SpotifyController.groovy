@@ -46,7 +46,7 @@ class SpotifyController {
             String trackName = wrapper.getFirstArtistResultByName(params.trackName).getName()
 
             Party party = Party.findByCode("PJI8LE")
-            render party.genres
+            render party.genres.toString()
 
             [trackName: trackName]
         }
