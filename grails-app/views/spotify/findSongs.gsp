@@ -13,7 +13,7 @@
     <g:else>
         <g:form name="findTrack" controller="Spotify" action="findSongs">
             <label>Enter a track name: </label>
-            <g:textField name="trackName" value="track name"/>
+            <g:textField name="trackName" placeholder="track name"/>
             <g:submitButton name="Search" value="Search"/>
         </g:form>
     </g:else>
