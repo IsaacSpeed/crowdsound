@@ -10,7 +10,7 @@ class SpotifyController {
 
         SpotifyWrapper wrapper = new SpotifyWrapper()
         wrapper.setAccessToken(accessToken)
-        boolean success = wrapper.createPlaylist(userAuth.userId, "My cool playlist yo")
+        wrapper.createPlaylist(userAuth.userId, "My cool playlist yo", accessToken)
 
         String messages = "$userAuth.userId and $accessToken"
 
