@@ -51,8 +51,10 @@ class SpotifyController {
             //render "Party saved"*/
 
             Party party = Party.findByCode("PJI8LE")
-            pushSongToPartyPlaylist("PJI8LE", generateSong("PJI8LE"))
-            render "$party likes ${party.genres.toString()}"
+            String songUri = generateSong("PJI8LE")
+            Track song = wrapper.getTrack(songUri)
+            pushSongToPartyPlaylist("PJI8LE", songUri)
+            render "$party likes ${party.genres.toString()}, so we added $song.getName() to their playlist"
 
             [trackName: trackName]
         }
@@ -99,6 +101,6 @@ class SpotifyController {
 
         partyPlaylist = wrapper.getPlaylistByName(userAuth.userId, partyCode)
 
-        wrapper.addTrackToPlaylist(userAuth.userId, partyCode, songUri)
+        wrapper.addTrackToPlaylist(userAuth.userId, partyPlaylist.getId(), songUri)
     }
 }
