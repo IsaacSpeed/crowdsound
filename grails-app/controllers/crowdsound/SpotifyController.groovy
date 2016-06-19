@@ -51,6 +51,7 @@ class SpotifyController {
             //render "Party saved"*/
 
             Party party = Party.findByCode("PJI8LE")
+            pushSongToPartyPlaylist("PJI8LE", generateSong("PJI8LE"))
             render "$party likes ${party.genres.toString()}"
 
             [trackName: trackName]
@@ -82,7 +83,7 @@ class SpotifyController {
         return wrapper.generateRecommendations(party.artists.take(5), party.genres.take(5)).get(0).getUri()
     }
 
-    public void pushSongToPartyPlaylist(String partyCode, String songId) {
+    public void pushSongToPartyPlaylist(String partyCode, String songUri) {
         Auth userAuth = Auth.findByPartyCode(partyCode)
         String accessToken = userAuth.authorize()
 
@@ -98,6 +99,6 @@ class SpotifyController {
 
         partyPlaylist = wrapper.getPlaylistByName(userAuth.userId, partyCode)
 
-        wrapper.addTrackToPlaylist(userAuth.userId, partyCode, songId)
+        wrapper.addTrackToPlaylist(userAuth.userId, partyCode, songUri)
     }
 }
