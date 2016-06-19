@@ -45,6 +45,7 @@ class SpotifyWrapper {
         try {
             response = client.get(path: "$endpoint$queryParams", headers: ['Authorization': "Bearer $accessToken"])
         } catch (RESTClientException e) {
+            println e.message
             return null
         }
 
