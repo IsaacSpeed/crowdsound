@@ -19,11 +19,12 @@ class UserController {
             SpotifyWrapper wrapper = new SpotifyWrapper()
             wrapper.setAccessToken(Auth.findByPartyCode(party.getCode()).authorize())
 
-            String a1Id = wrapper.getFirstArtistResultByName(params.a1)
-            String a2Id = wrapper.getFirstArtistResultByName(params.a2)
-            String a3Id = wrapper.getFirstArtistResultByName(params.a3)
-            String a4Id = wrapper.getFirstArtistResultByName(params.a4)
-            String a5Id = wrapper.getFirstArtistResultByName(params.a5)
+            String a1Id, a2Id, a3Id, a4Id, a5Id
+            if (params.a1) a1Id = wrapper.getFirstArtistResultByName(params.a1).getId()
+            if (params.a2) a2Id = wrapper.getFirstArtistResultByName(params.a2).getId()
+            if (params.a3) a3Id = wrapper.getFirstArtistResultByName(params.a3).getId()
+            if (params.a4) a4Id = wrapper.getFirstArtistResultByName(params.a4).getId()
+            if (params.a5) a5Id = wrapper.getFirstArtistResultByName(params.a5).getId()
 
             if (a1Id) party.addArtist(a1Id)
             if (a2Id) party.addArtist(a2Id)
