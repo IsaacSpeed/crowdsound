@@ -73,7 +73,7 @@ class Party {
 
         // if there's nothing to see with, add a default song....
         if (!artists && !genres) {
-            return "7GhIk7Il098yCjg4BQjzvb"
+            return "spotify:track:7GhIk7Il098yCjg4BQjzvb"
         }
 
         // if not, pick five random artists and five random genres
