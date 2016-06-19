@@ -34,7 +34,7 @@ class SpotifyController {
     }
 
     def findSongs() {
-        if (params) {
+        if (params.trackName) {
             Auth userAuth = Auth.findByUserId("12182647490")
             String accessToken = userAuth.authorize()
 
