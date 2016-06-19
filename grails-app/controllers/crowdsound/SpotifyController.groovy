@@ -1,5 +1,7 @@
 package crowdsound
 
+import com.wrapper.spotify.Api
+
 class SpotifyController {
 
     def index() { render "this is an index fam" }
@@ -9,8 +11,9 @@ class SpotifyController {
         String accessToken = userAuth.authorize()
 
         SpotifyWrapper wrapper = new SpotifyWrapper()
-        wrapper.setAccessToken(accessToken)
-        wrapper.createPlaylist(userAuth.userId, "My cool playlist yo", accessToken)
+        Api api = wrapper.getApi()
+        api.setAccessToken(accessToken)
+        api.createPlaylist(userAuth.userId, "My cool playlist yo").build().get()
 
         String messages = "$userAuth.userId and $accessToken"
 
