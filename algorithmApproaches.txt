@@ -1,0 +1,13 @@
+algorithm approach #1
+- generate a 10 song recommendation per request
+- pool the songs together
+- randomly add songs to playlist
+
+if 80% of the party selects rap as their favorite genre, 80% of the songs that get played will be rap music.
+
+
+algorithm approach #2
+- have pool of artists
+- have pool of genres
+- whenever someone joins the party, push their request (artists & genres) to the pool
+- whenever someone joins or a song ends, generate a song from five randomly selected artists & genres from pools
