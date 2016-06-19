@@ -70,7 +70,6 @@ class SpotifyController {
 
         SpotifyWrapper wrapper = new SpotifyWrapper()
         wrapper.setAccessToken(accessToken)
-        println "Bearer $accessToken"
 
         // if there's nothing to see with, add a default song....
         if (!party.artists && !party.genres) {
@@ -81,12 +80,7 @@ class SpotifyController {
         Collections.shuffle(party.artists)
         Collections.shuffle(party.genres)
 
-        println party.artists
-        println party.genres
-
-        println wrapper.generateRecommendations(party.artists.take(5), party.genres.take(5))
-
-        return wrapper.generateRecommendations(party.artists.take(5), party.genres.take(5)).get(0).getUri()
+        return wrapper.generateRecommendations(party.artists.take(3), party.genres.take(2)).get(0).getUri()
     }
 
     public void pushSongToPartyPlaylist(String partyCode, String songUri) {
