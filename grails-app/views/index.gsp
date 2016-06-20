@@ -28,7 +28,7 @@
     <section id="header">
             <h1><strong>CrowdSound</strong></h1>
     </section>
-    <section id="app">
+    <section id="app" class="align-center">
         <section id="hostOrUser" class="main style1">
             <div class="container">
                 <div class="row 150%">
@@ -45,7 +45,7 @@
                 <div class="row 150%">
                     <div class="6u 12u$(medium)">
                         <h3>Login with your Spotify account:</h3>
-                        <a class="nounderline" href="https://accounts.spotify.com/authorize?client_id=cfa363d44d2743ab8f6dd82a6e7eaca8&response_type=code&redirect_uri=http://crowdsound.us/auth/authHost&scope=playlist-modify-private playlist-read-private playlist-modify-public"><button>Login!</button></a>
+                        <a class="button" href="https://accounts.spotify.com/authorize?client_id=cfa363d44d2743ab8f6dd82a6e7eaca8&response_type=code&redirect_uri=http://crowdsound.us/auth/authHost&scope=playlist-modify-private playlist-read-private playlist-modify-public">Login</a>
                     </div>
                 </div>
             </div>
