@@ -72,7 +72,13 @@ class Party {
         Collections.shuffle(artists)
         Collections.shuffle(genres)
 
-        List<Track> recommendations = wrapper.generateRecommendations(artists.take(3), genres.take(2))
+        List artistsToSeed = artists.take(3)
+        List genresToSeed = genres.take(2)
+
+        artistsToSeed.each { println wrapper.getArtist(it) }
+        genresToSeed.each { println it }
+
+        List<Track> recommendations = wrapper.generateRecommendations(artistsToSeed, genresToSeed)
 
         if (recommendations) {
             println "Generated recommendations for $code!"

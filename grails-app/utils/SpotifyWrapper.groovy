@@ -106,6 +106,22 @@ class SpotifyWrapper {
     }
 
     /**
+     * Get Spotify catalog information for a single artist identified by its unique Spotify ID.
+     */
+    public Artist getArtist(String artistId) {
+        final ArtistRequest request = api.getArtist(artistId).build()
+        Artist artist
+
+        try {
+            artist = request.get();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return artist;
+    }
+
+    /**
      * Create a playlist for a Spotify user. (The playlist will be empty until you add tracks.)
      */
     public boolean createPlaylist(String userID, String partyCode) {
