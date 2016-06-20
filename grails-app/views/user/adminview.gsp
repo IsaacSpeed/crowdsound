@@ -97,7 +97,7 @@
     <section id="partyView" class="main style2">
         <div class="container">
             <div class="row 150%">
-                <div class="6u 12u$(medium) row">
+                <div class="6u 12u$(medium)">
                     <button id="start">Start the party!</button>
                     <button id="stop">Pause Queueing</button><br/>
                     <button id="end">END PARTY</button>
@@ -111,7 +111,6 @@
                         ${it}<br/>
                     </g:each>
                 </div>
-                <iframe style="float: right" src="https://embed.spotify.com/?uri=spotify:user:${userId}:playlist:${playlistId}&theme=white" width="100%" height="50%" frameborder="0" allowtransparency="true"></iframe>
             </div>
         </div>
     </section>
