@@ -47,7 +47,7 @@ class AuthController {
                 partyCode = generatePartyCode()
                 auth.partyCode = partyCode
                 Party party = new Party(partyCode)
-                party.save()
+                party.save(failOnError: true, flush: true)
                 println party.errors.allErrors
             }
         } else {
@@ -56,9 +56,11 @@ class AuthController {
             auth.save()
 
             Party party = new Party(partyCode)
-            party.save()
+            party.save(failOnError: true, flush: true)
             println party.errors.allErrors
         }
+
+        println Party.findByCode(partyCode)
 
         [code:partyCode, username:auth.userId, errors: auth.errors.getAllErrors(), message: message]
     }
