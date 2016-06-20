@@ -8,6 +8,7 @@
 
     <script>
         $(document).ready(function() {
+            $("#stop").hide()
             $("#start").click(function() {
                 startParty();
                 $("#stop").show();
@@ -35,7 +36,7 @@
 
             function processRequest(e) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    var response = xhr.content;
+                    var response = xhr.responseText;
                     alert(response);
                 }
             }
@@ -50,7 +51,7 @@
 
             function processRequest(e) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    var response = xhr.content;
+                    var response = xhr.responseText;
                     alert(response);
                 }
             }
@@ -66,7 +67,7 @@
 
             function processRequest(e) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    var response = xhr.content;
+                    var response = xhr.responseText;
                     alert(response);
                 }
             }
