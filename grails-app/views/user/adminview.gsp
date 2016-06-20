@@ -7,17 +7,19 @@
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
 
     <script>
-        $("#start").click(function() {
-            startParty();
-            $("#end").show();
-            $("#start").hide();
-        });
+        $(document).ready(function() {
+            $("#start").click(function() {
+                startParty();
+                $("#end").show();
+                $("#start").hide();
+            });
 
-        $("#end").click(function() {
-            endParty();
-            $("#start").show()
-            $("#end").hide();
-        })
+            $("#end").click(function() {
+                endParty();
+                $("#start").show()
+                $("#end").hide();
+            });
+        });
 
         function startParty() {
             var xhr = new XMLHttpRequest();
@@ -64,12 +66,9 @@
         <div class="container">
             <div class="row 150%">
                 <div class="6u 12u$(medium)">
-                    <g:form controller="party" action="start">
-                        <g:hiddenField name="partyCode" value="${params.partyCode}"/>
-                        <g:submitButton name="startparty" value="Start the party!"/>
-                    </g:form>
                     <button id="start">Start the party!</button>
                     <button id="end">End party</button>
+
                     <h1 id="songCountdown"></h1>
                     <h1>This page is different from the normal party view, to allow admin privileges</h1>
                     <h2>Information about the party can go here such as:</h2>
