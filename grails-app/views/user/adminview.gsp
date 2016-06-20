@@ -22,6 +22,7 @@
 
             $("#end").click(function() {
                 endParty();
+                location = "http://crowdsound.us"
             });
         });
 
@@ -34,7 +35,7 @@
 
             function processRequest(e) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    var response = xhr.responseText;
+                    var response = xhr.content;
                     alert(response);
                 }
             }
@@ -49,7 +50,7 @@
 
             function processRequest(e) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    var response = xhr.responseText;
+                    var response = xhr.content;
                     alert(response);
                 }
             }
@@ -64,7 +65,7 @@
 
             function processRequest(e) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    var response = xhr.responseText;
+                    var response = xhr.content;
                     alert(response);
                 }
             }
