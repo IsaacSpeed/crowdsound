@@ -10,20 +10,39 @@
         $(document).ready(function() {
             $("#start").click(function() {
                 startParty();
-                $("#end").show();
+                $("#stop").show();
                 $("#start").hide();
+            });
+
+            $("#stop").click(function() {
+                stopParty();
+                $("#start").show()
+                $("#stop").hide();
             });
 
             $("#end").click(function() {
                 endParty();
-                $("#start").show()
-                $("#end").hide();
             });
         });
 
         function startParty() {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', 'http://crowdsound.us/party/start?partyCode=${partyCode}&isPresentation=true', true);
+            xhr.send();
+
+            xhr.onreadystatechange = processRequest;
+
+            function processRequest(e) {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = xhr.responseText;
+                    alert(response);
+                }
+            }
+        }
+
+        function stopParty() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://crowdsound.us/party/stop?partyCode=${partyCode}', true);
             xhr.send();
 
             xhr.onreadystatechange = processRequest;
@@ -67,9 +86,9 @@
             <div class="row 150%">
                 <div class="6u 12u$(medium)">
                     <button id="start">Start the party!</button>
-                    <button id="end">End party</button>
+                    <button id="stop">Stop party</button><br/>
+                    <button id="end">END PARTY</button>
 
-                    <h1 id="songCountdown"></h1>
                     <h1>This page is different from the normal party view, to allow admin privileges</h1>
                     <h2>Information about the party can go here such as:</h2>
                     <p>Other user info</p>

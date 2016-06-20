@@ -33,21 +33,24 @@ class AuthController {
         }
 
         Auth auth = new Auth(code)
-        String message = "Welcome, $auth.userId!"
+        String message = "Welcome!"
 
         // check to see if the user is already in the database
         if (Auth.findByUserId(auth.userId)) {
             auth = Auth.findByUserId(auth.userId)
-            message = "Welcome back, $auth.userId!"
+            message = "Welcome back!"
+
             partyCode = auth.partyCode
+
+            if (!partyCode) {
+                partyCode = generatePartyCode()
+                auth.partyCode = partyCode
+                Party party = new Party(partyCode)
+            }
         } else {
-            def pool = ['A'..'Z',0..9].flatten()
-            Random rand = new Random(System.currentTimeMillis())
 
-            def passChars = (0..5).collect { pool[rand.nextInt(pool.size())] }
-            partyCode = passChars.join()
 
-            auth.partyCode = partyCode
+            auth.partyCode = generatePartyCode()
             auth.save()
 
             Party party = new Party()
@@ -56,6 +59,14 @@ class AuthController {
         }
 
         [code:partyCode, username:auth.userId, errors: auth.errors.getAllErrors(), message: message]
+    }
+
+    private String generatePartyCode() {
+        def pool = ['A'..'Z',0..9].flatten()
+        Random rand = new Random(System.currentTimeMillis())
+
+        def passChars = (0..5).collect { pool[rand.nextInt(pool.size())] }
+        return passChars.join()
     }
 
 }

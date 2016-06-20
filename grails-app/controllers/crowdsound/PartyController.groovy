@@ -36,7 +36,7 @@ class PartyController {
         }
     }
 
-    def end() {
+    def stop() {
         String partyCode = params.partyCode
         println params
         println partyCode
@@ -48,7 +48,31 @@ class PartyController {
                 party.end()
                 party.save()
 
-                render "Party $partyCode has end!"
+                render "Party $partyCode has stopped!"
+            } else {
+                render "Invalid party code"
+            }
+        } else {
+            render "Sorry, partycode not specified"
+        }
+    }
+
+    def end() {
+        String partyCode = params.partyCode
+        println params
+        println partyCode
+
+        if (partyCode) {
+            Party party = Party.findByCode(partyCode)
+
+            if (party) {
+                party.delete()
+
+                Auth auth = Auth.findByPartyCode(partyCode)
+                auth.partyCode = ''
+                auth.save()
+
+                render "Party $partyCode has ended!"
             } else {
                 render "Invalid party code"
             }
