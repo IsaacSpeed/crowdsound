@@ -42,7 +42,7 @@ class UserController {
 
             Auth auth = Auth.findByPartyCode(partyCode)
 
-            return [ partyCode: party.getCode(), userId: auth.userId, playlistId: party.playlistId, artists: artistNames, genres: party.genres
+            return [ partyCode: party.getCode(), userId: auth.userId, playlistId: party.playlistId, artists: artistNames, genres: party.genres ]
         } else {
             render "ERROR could not find party"
         }
