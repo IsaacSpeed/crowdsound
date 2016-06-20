@@ -48,15 +48,16 @@ class AuthController {
                 auth.partyCode = partyCode
                 Party party = new Party(partyCode)
                 party.save()
+                println party.errors.allErrors
             }
         } else {
             partyCode = generatePartyCode()
             auth.partyCode = partyCode
             auth.save()
 
-            Party party = new Party()
-            party.code = partyCode
+            Party party = new Party(partyCode)
             party.save()
+            println party.errors.allErrors
         }
 
         [code:partyCode, username:auth.userId, errors: auth.errors.getAllErrors(), message: message]
