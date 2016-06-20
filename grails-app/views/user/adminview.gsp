@@ -22,7 +22,7 @@
 
             $("#end").click(function() {
                 endParty();
-                location = "http://crowdsound.us"
+                window.location.href = "http://crowdsound.us"
             });
         });
 

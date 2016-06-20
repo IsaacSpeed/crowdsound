@@ -66,6 +66,7 @@ class PartyController {
             Party party = Party.findByCode(partyCode)
 
             if (party) {
+                println "Deleting party $partyCode"
                 party.delete()
 
                 Auth auth = Auth.findByPartyCode(partyCode)
@@ -74,6 +75,7 @@ class PartyController {
 
                 render "Party $partyCode has ended!"
             } else {
+                println "Could not find party to delete."
                 render "Invalid party code"
             }
         } else {
