@@ -16,11 +16,39 @@ class PartyController {
                 party.start()
                 party.save()
 
+                // add two extra songs, in case someone skips a song?
+                party.addSong()
+                party.addSong()
+
+                render "Party $partyCode has started!"
+
                 while (party.isStarted) {
                     int duration = party.addSong()
-                    sleep(duration - 2000)
+
+                    if (params.isPresentation) sleep(30000)
+                    else sleep(duration - 2000)
                 }
-                render "Party $partyCode has started!"
+            } else {
+                render "Invalid party code"
+            }
+        } else {
+            render "Sorry, partycode not specified"
+        }
+    }
+
+    def start() {
+        String partyCode = params.partyCode
+        println params
+        println partyCode
+
+        if (partyCode) {
+            Party party = Party.findByCode(partyCode)
+
+            if (party) {
+                party.end()
+                party.save()
+
+                render "Party $partyCode has end!"
             } else {
                 render "Invalid party code"
             }
