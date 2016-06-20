@@ -82,7 +82,7 @@ class UserController {
             // add song so there will be a playlist
             party.addSong()
 
-            List<String> artistNames
+            List<String> artistNames = new LinkedList<String>()
             party.artists.each { artistNames.add(wrapper.getArtist(it).getName()) }
 
             println party.playlistId
