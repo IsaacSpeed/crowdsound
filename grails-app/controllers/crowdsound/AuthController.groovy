@@ -46,10 +46,9 @@ class AuthController {
                 partyCode = generatePartyCode()
                 auth.partyCode = partyCode
                 Party party = new Party(partyCode)
+                party.save()
             }
         } else {
-
-
             auth.partyCode = generatePartyCode()
             auth.save()
 
