@@ -89,12 +89,7 @@
                     <button id="stop">Stop party</button><br/>
                     <button id="end">END PARTY</button>
 
-                    <h1>This page is different from the normal party view, to allow admin privileges</h1>
-                    <h2>Information about the party can go here such as:</h2>
-                    <p>Other user info</p>
-                    <p>Current song playing</p>
-                    <p>Like/Dislike song</p>
-                    <p>See song queue</p>
+                    <iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
                 </div>
             </div>
         </div>
