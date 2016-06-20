@@ -20,11 +20,11 @@ class UserController {
             wrapper.setAccessToken(Auth.findByPartyCode(party.getCode()).authorize())
 
             String a1Id, a2Id, a3Id, a4Id, a5Id
-            if (params.a1) a1Id = wrapper.getFirstArtistResultByName(params.a1).getId()
-            if (params.a2) a2Id = wrapper.getFirstArtistResultByName(params.a2).getId()
-            if (params.a3) a3Id = wrapper.getFirstArtistResultByName(params.a3).getId()
-            if (params.a4) a4Id = wrapper.getFirstArtistResultByName(params.a4).getId()
-            if (params.a5) a5Id = wrapper.getFirstArtistResultByName(params.a5).getId()
+            if (params.a1) a1Id = wrapper.getFirstArtistResultByName(params.a1)?.getId()
+            if (params.a2) a2Id = wrapper.getFirstArtistResultByName(params.a2)?.getId()
+            if (params.a3) a3Id = wrapper.getFirstArtistResultByName(params.a3)?.getId()
+            if (params.a4) a4Id = wrapper.getFirstArtistResultByName(params.a4)?.getId()
+            if (params.a5) a5Id = wrapper.getFirstArtistResultByName(params.a5)?.getId()
 
             if (a1Id) party.addArtist(a1Id)
             if (a2Id) party.addArtist(a2Id)
@@ -40,9 +40,9 @@ class UserController {
 
             party.save()
 
-            println party.artists
+            Auth auth = Auth.findByPartyCode(party.code)
 
-            return [partyCode: party.getCode()]
+            return [ partyCode: party.getCode(), userId: auth.userId, playlistId: party.playlistId, artists: artistNames, genres: party.genres ]
         } else {
             render "ERROR could not find party"
         }
@@ -56,11 +56,11 @@ class UserController {
             wrapper.setAccessToken(Auth.findByPartyCode(party.getCode()).authorize())
 
             String a1Id, a2Id, a3Id, a4Id, a5Id
-            if (params.artist1) a1Id = wrapper.getFirstArtistResultByName(params.artist1).getId()
-            if (params.artist2) a2Id = wrapper.getFirstArtistResultByName(params.artist2).getId()
-            if (params.artist3) a3Id = wrapper.getFirstArtistResultByName(params.artist3).getId()
-            if (params.artist4) a4Id = wrapper.getFirstArtistResultByName(params.artist4).getId()
-            if (params.artist5) a5Id = wrapper.getFirstArtistResultByName(params.artist5).getId()
+            if (params.artist1) a1Id = wrapper.getFirstArtistResultByName(params.artist1)?.getId()
+            if (params.artist2) a2Id = wrapper.getFirstArtistResultByName(params.artist2)?.getId()
+            if (params.artist3) a3Id = wrapper.getFirstArtistResultByName(params.artist3)?.getId()
+            if (params.artist4) a4Id = wrapper.getFirstArtistResultByName(params.artist4)?.getId()
+            if (params.artist5) a5Id = wrapper.getFirstArtistResultByName(params.artist5)?.getId()
 
             if (a1Id) party.addArtist(a1Id)
             if (a2Id) party.addArtist(a2Id)

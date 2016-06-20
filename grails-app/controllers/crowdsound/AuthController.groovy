@@ -33,12 +33,10 @@ class AuthController {
         }
 
         Auth auth = new Auth(code)
-        String message = "Welcome!"
 
         // check to see if the user is already in the database
         if (Auth.findByUserId(auth.userId)) {
             auth = Auth.findByUserId(auth.userId)
-            message = "Welcome back!"
 
             partyCode = auth.partyCode
 
@@ -67,12 +65,9 @@ class AuthController {
 
             Party party = new Party(partyCode)
             party.save(failOnError: true, flush: true)
-            println party.errors.allErrors
         }
 
-        println Party.findByCode(partyCode)
-
-        [code:partyCode, username:auth.userId, errors: auth.errors.getAllErrors(), message: message]
+        [code:partyCode, username:auth.userId]
     }
 
     private String generatePartyCode() {
