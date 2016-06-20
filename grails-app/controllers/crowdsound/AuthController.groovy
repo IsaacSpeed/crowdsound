@@ -43,13 +43,15 @@ class AuthController {
             partyCode = auth.partyCode
 
             if (!partyCode) {
+                print "Party not found, creating....."
                 partyCode = generatePartyCode()
                 auth.partyCode = partyCode
                 Party party = new Party(partyCode)
                 party.save()
             }
         } else {
-            auth.partyCode = generatePartyCode()
+            partyCode = generatePartyCode()
+            auth.partyCode = partyCode
             auth.save()
 
             Party party = new Party()
