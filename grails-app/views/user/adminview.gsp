@@ -100,7 +100,7 @@
                         ${it}<br/>
                     </g:each>
                 </div>
-                <iframe style="float: right" src="https://embed.spotify.com/?uri=spotify:user:${userId}:playlist:${playlistId}" width="100%" height="50%" frameborder="0" allowtransparency="true"></iframe>
+                <iframe style="float: right" src="https://embed.spotify.com/?uri=spotify:user:${userId}:playlist:${playlistId}&theme=white" width="100%" height="50%" frameborder="0" allowtransparency="true"></iframe>
             </div>
         </div>
     </section>
