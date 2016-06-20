@@ -123,19 +123,20 @@ class SpotifyWrapper {
 
     /**
      * Create a playlist for a Spotify user. (The playlist will be empty until you add tracks.)
+     * returns playlist id
      */
-    public boolean createPlaylist(String userID, String partyCode) {
+    public String createPlaylist(String userID, String partyCode) {
         final PlaylistCreationRequest request = api.createPlaylist(userID, partyCode)
                 .publicAccess(true)
                 .build();
 
         try {
             final Playlist playlist = request.get();
-            return true;
+            return playlist.getId();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println(e)
-            return false;
+            return null;
         }
     }
 
