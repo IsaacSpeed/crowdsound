@@ -83,7 +83,9 @@ class UserController {
 
             println party.playlistId
 
-            return [partyCode: party.getCode(), playlistId: party.playlistId, artists: artistNames, genres: party.genres ]
+            Auth auth = Auth.findByPartyCode(party.code)
+
+            return [partyCode: party.getCode(), userId: auth.userId, playlistId: party.playlistId, artists: artistNames, genres: party.genres ]
         } else {
             render "ERROR could not find party"
         }

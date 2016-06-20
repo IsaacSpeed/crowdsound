@@ -145,7 +145,7 @@ class SpotifyWrapper {
      */
     public Playlist getPlaylist(String userID, String playlistID) {
         final PlaylistRequest request = api.getPlaylist(userID, playlistID).build();
-        final Playlist playlist = null;
+        Playlist playlist = null;
 
         try {
             playlist = request.get();
