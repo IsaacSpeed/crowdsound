@@ -7,6 +7,7 @@
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
 
     <script>
+    //todo fix this
         $(document).ready(function() {
             if(isPartyStarted()) {
                 $("#start").hide();
