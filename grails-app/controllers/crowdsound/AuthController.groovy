@@ -47,17 +47,20 @@ class AuthController {
                 partyCode = generatePartyCode()
                 auth.partyCode = partyCode
                 Party party = new Party(partyCode)
-                party.save()
+                party.save(failOnError: true, flush: true)
+                println party.errors.allErrors
             }
         } else {
             partyCode = generatePartyCode()
             auth.partyCode = partyCode
             auth.save()
 
-            Party party = new Party()
-            party.code = partyCode
-            party.save()
+            Party party = new Party(partyCode)
+            party.save(failOnError: true, flush: true)
+            println party.errors.allErrors
         }
+
+        println Party.findByCode(partyCode)
 
         [code:partyCode, username:auth.userId, errors: auth.errors.getAllErrors(), message: message]
     }
