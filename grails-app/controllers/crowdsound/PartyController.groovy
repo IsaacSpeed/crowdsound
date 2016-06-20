@@ -14,8 +14,12 @@ class PartyController {
 
             if (party) {
                 party.start()
-                party.addSong()
                 party.save()
+
+                while (party.isStarted) {
+                    int duration = party.addSong()
+                    sleep(duration - 2000)
+                }
                 render "Party $partyCode has started!"
             } else {
                 render "Invalid party code"

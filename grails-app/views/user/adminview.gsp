@@ -7,7 +7,7 @@
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
 
     <script>
-        addSong();
+        /*addSong();
 
         function addSong() {
             var xhr = new XMLHttpRequest();
@@ -23,7 +23,7 @@
                     window.setTimeout(addSong, parseInt(duration - 200));
                 }
             }
-        }
+        }*/
     </script>
 </head>
 <body>
