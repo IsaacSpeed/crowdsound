@@ -110,7 +110,7 @@
                     <button id="start" style="float: left">Start the party!</button>
                     <button id="stop" style="float: left">Pause Queueing</button>
                     <button id="end" style="float: right">END PARTY</button>
-                    <iframe src="https://embed.spotify.com/?uri=spotify:user:${userId}:playlist:${playlistId}&theme=white" width="100%" height="50%" frameborder="0" allowtransparency="true"></iframe>
+                    <iframe src="https://embed.spotify.com/?uri=spotify:user:${userId}:playlist:${playlistId}&theme=white" width="100%" height="300px" frameborder="0" allowtransparency="true"></iframe>
                 </div>
             </div>
         </div>
