@@ -22,6 +22,7 @@ class Party {
         artists = new ArrayList<String>()
         genres = new ArrayList<String>()
         isStarted = false
+        playlistId = ''
     }
 
     public void start() {
