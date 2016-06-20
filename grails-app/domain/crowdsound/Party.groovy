@@ -1,12 +1,13 @@
 package crowdsound
 
-import com.wrapper.spotify.models.SimplePlaylist
+import com.wrapper.spotify.models.Playlist
 import com.wrapper.spotify.models.Track
 
 class Party {
 
     String code
     boolean isStarted
+    String playlistId
 
     static hasMany = [artists: String, genres: String]
     List artists
@@ -96,15 +97,15 @@ class Party {
         SpotifyWrapper wrapper = new SpotifyWrapper()
         wrapper.setAccessToken(accessToken)
 
-        SimplePlaylist partyPlaylist = wrapper.getPlaylistByName(userAuth.userId, code)
+        Playlist partyPlaylist = wrapper.getPlaylist(userAuth.userId, playlistId)
 
         // create the playlist if it does not exist
         if (!partyPlaylist) {
             println "Creating playlist"
-            wrapper.createPlaylist(userAuth.userId, code)
+            playlistId = wrapper.createPlaylist(userAuth.userId, code)
         }
 
-        partyPlaylist = wrapper.getPlaylistByName(userAuth.userId, code)
+        partyPlaylist = wrapper.getPlaylist(userAuth.userId, playlistId)
 
         println "Found playlist ${partyPlaylist.getName()}"
 
