@@ -74,6 +74,9 @@ class UserController {
             if (params.genre4) party.addGenre(params.genre4)
             if (params.genre5) party.addGenre(params.genre5)
 
+            println "These are our params: $params"
+            println party.artists + party.genres
+
             party.save()
 
             // add song so there will be a playlist

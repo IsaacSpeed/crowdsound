@@ -144,18 +144,16 @@ class SpotifyWrapper {
      * Get a playlist owned by a Spotify user.
      */
     public Playlist getPlaylist(String userID, String playlistID) {
-        println "Trying to get playlist by id $playlistID"
         final PlaylistRequest request = api.getPlaylist(userID, playlistID).build()
         Playlist playlist
 
         try {
             playlist = request.get()
-            println "got playlist! $playlist"
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error finding playlist: " + e.getMessage())
         }
 
-        return playlist;
+        return playlist
     }
 
     /**
