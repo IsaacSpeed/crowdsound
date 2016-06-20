@@ -98,7 +98,9 @@ class Party {
         SpotifyWrapper wrapper = new SpotifyWrapper()
         wrapper.setAccessToken(accessToken)
 
+        println "about to find playlist...  $playlistId"
         Playlist partyPlaylist = wrapper.getPlaylist(userAuth.userId, playlistId)
+        println "hopefully found $playlistId"
 
         // create the playlist if it does not exist
         if (!partyPlaylist) {

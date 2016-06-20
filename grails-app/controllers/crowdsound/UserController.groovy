@@ -83,7 +83,7 @@ class UserController {
 
             println party.playlistId
 
-            return [partyCode: party.getCode(), playlistID: party.playlistId, artists: artistNames, genres: party.genres ]
+            return [partyCode: party.getCode(), playlistId: party.playlistId, artists: artistNames, genres: party.genres ]
         } else {
             render "ERROR could not find party"
         }
