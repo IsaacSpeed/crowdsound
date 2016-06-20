@@ -40,9 +40,9 @@ class UserController {
 
             party.save()
 
-            println party.artists
+            Auth auth = Auth.findByPartyCode(partyCode)
 
-            return [partyCode: party.getCode()]
+            return [ partyCode: party.getCode(), userId: auth.userId, playlistId: party.playlistId, artists: artistNames, genres: party.genres
         } else {
             render "ERROR could not find party"
         }
