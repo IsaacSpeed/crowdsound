@@ -77,8 +77,7 @@ class UserController {
             party.save()
 
             println party.artists
-
-            return [partyCode: party.getCode()]
+            return [partyCode: party.getCode(), playlistID: party.playlistId]
         } else {
             render "ERROR could not find party"
         }
