@@ -62,7 +62,7 @@
                         <h3>What's your name?</h3>
                         <input type="text" id="nickname" placeholder="It doesn't have to be your real name!"><br>
                         <h3>Pick your Top 5's</h3>
-                        <div style="float: left;"></div><p>Artists</p>
+                        <div style="float: left;"><p>Artists</p>
                         <g:textField name="artist1" placeholder="Who's your favorite artist?"/><br/>
                         <g:textField name="artist2" placeholder="Second favorite?"/><br/>
                         <g:textField name="artist3" placeholder="Third?"/><br/>
@@ -70,13 +70,13 @@
                         <g:textField name="artist5" placeholder="You've got a lot of artists in mind"/><br/>
                         </div>
                         <div style="float: right;"><p>Genres</p>
-                            <g:textField name="genre1" placeholder="What's your favorite genre?"/><br/>
-                            <g:textField name="genre2" placeholder="Second favorite?"/><br/>
-                            <g:textField name="genre3" placeholder="Third?"/><br/>
-                            <g:textField name="genre4" placeholder="Didn't know they had this many genres"/><br/>
-                            <g:textField name="genre5" id="genre5" placeholder="You've got a broad taste in music"/><br/>
-                            <g:hiddenField name="partyCode" value="${code}"/>
-                            <g:actionSubmit value="Submit" action="adminview"/>
+                        <g:textField name="genre1" placeholder="What's your favorite genre?"/><br/>
+                        <g:textField name="genre2" placeholder="Second favorite?"/><br/>
+                        <g:textField name="genre3" placeholder="Third?"/><br/>
+                        <g:textField name="genre4" placeholder="Didn't know they had this many genres"/><br/>
+                        <g:textField name="genre5" id="genre5" placeholder="You've got a broad taste in music"/><br/>
+                        <g:hiddenField name="partyCode" value="${code}"/>
+                        <g:actionSubmit value="Submit" action="adminview"/>
                         </div>
                     </g:form>
                 </div>
