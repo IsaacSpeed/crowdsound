@@ -60,6 +60,7 @@
             var xhr = new XMLHttpRequest();
             xhr.open('GET', 'http://crowdsound.us/party/end?partyCode=${partyCode}', true);
             xhr.send();
+            alert("Ending party!");
 
             xhr.onreadystatechange = processRequest;
 
