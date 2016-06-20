@@ -91,7 +91,7 @@
                     <button id="stop">Stop party</button><br/>
                     <button id="end">END PARTY</button>
 
-                    <iframe src="https://embed.spotify.com/?uri=spotify:user:${userId}:spotify:${playlistId}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+                    <iframe src="https://embed.spotify.com/?uri=spotify:user:${userId}:playlist:${playlistId}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
                     <h1>Artists:</h1>
                     <g:each in="${artists}">
                         ${it}<br/>

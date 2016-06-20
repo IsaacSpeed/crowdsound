@@ -82,6 +82,8 @@ class UserController {
             List<String> artistNames = party.artists.each { wrapper.getArtist(it).getName() }
 
             println party.playlistId
+            println artistNames
+            println party.genres
 
             Auth auth = Auth.findByPartyCode(party.code)
 
