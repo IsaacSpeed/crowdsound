@@ -37,10 +37,10 @@ dataSource:
 environments:
     development:
         dataSource:
-            dbCreate: update
+            dbCreate: create-drop
     test:
         dataSource:
-            dbCreate: update
+            dbCreate: create-drop
     production:
         dataSource:
             dbCreate: update
