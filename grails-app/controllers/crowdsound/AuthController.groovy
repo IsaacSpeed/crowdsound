@@ -55,7 +55,7 @@ class AuthController {
                 if (!party) {
                     partyCode = generatePartyCode()
                     auth.partyCode = partyCode
-                    Party party = new Party(partyCode)
+                    party = new Party(partyCode)
                     party.save(failOnError: true, flush: true)
                     println party.errors.allErrors
                 }
