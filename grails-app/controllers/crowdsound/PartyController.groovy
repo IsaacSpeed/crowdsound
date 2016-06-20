@@ -36,7 +36,7 @@ class PartyController {
         }
     }
 
-    def start() {
+    def end() {
         String partyCode = params.partyCode
         println params
         println partyCode
