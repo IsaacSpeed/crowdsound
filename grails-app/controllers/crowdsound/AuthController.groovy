@@ -49,6 +49,16 @@ class AuthController {
                 Party party = new Party(partyCode)
                 party.save(failOnError: true, flush: true)
                 println party.errors.allErrors
+            } else {
+                println "Party $partyCode already exists"
+                Party party = Party.findByCode(partyCode)
+                if (!party) {
+                    partyCode = generatePartyCode()
+                    auth.partyCode = partyCode
+                    party = new Party(partyCode)
+                    party.save(failOnError: true, flush: true)
+                    println party.errors.allErrors
+                }
             }
         } else {
             partyCode = generatePartyCode()
