@@ -76,8 +76,9 @@ class UserController {
 
             party.save()
 
-            println party.artists
-            return [partyCode: party.getCode(), playlistID: party.playlistId]
+            List<String> artistNames = party.artists.each { wrapper.getArtist(it).getName() }
+
+            return [partyCode: party.getCode(), playlistID: party.playlistId, artists: artistNames, genres: party.genres ]
         } else {
             render "ERROR could not find party"
         }

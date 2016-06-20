@@ -92,6 +92,14 @@
                     <button id="end">END PARTY</button>
 
                     <iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:${playlistId}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+                    <h1>Artists:</h1>
+                    <g:each in="${artists}">
+                        ${it}<br/>
+                    </g:each>
+                    <h1>Genres:</h1>
+                    <g:each in="${genres}">
+                        ${it}<br/>
+                    </g:each>
                 </div>
             </div>
         </div>
