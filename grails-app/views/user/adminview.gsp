@@ -8,7 +8,12 @@
 
     <script>
         $(document).ready(function() {
-            $("#stop").hide()
+            if(isPartyStarted()) {
+                $("#start").hide();
+            } else {
+                $("#stop").hide();
+            }
+
             $("#start").click(function() {
                 startParty();
                 $("#stop").show();
