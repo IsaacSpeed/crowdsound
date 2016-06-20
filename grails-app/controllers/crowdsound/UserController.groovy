@@ -82,7 +82,8 @@ class UserController {
             // add song so there will be a playlist
             party.addSong()
 
-            List<String> artistNames = party.artists.each { wrapper.getArtist(it).getName() }
+            List<String> artistNames
+            party.artists.each { artistNames.add(wrapper.getArtist(it).getName()) }
 
             println party.playlistId
             println artistNames
