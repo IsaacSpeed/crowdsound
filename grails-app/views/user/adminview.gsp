@@ -27,6 +27,20 @@
             });
         });
 
+        function isPartyStarted() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://crowdsound.us/party/isStarted?partyCode=${partyCode}', true);
+            xhr.send();
+
+            xhr.onreadystatechange = processRequest;
+
+            function processRequest(e) {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    return (xhr.responseText === "true");
+                }
+            }
+        }
+
         function startParty() {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', 'http://crowdsound.us/party/start?partyCode=${partyCode}&isPresentation=true', true);
