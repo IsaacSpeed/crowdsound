@@ -76,7 +76,12 @@ class UserController {
 
             party.save()
 
+            // add song so there will be a playlist
+            party.addSong()
+
             List<String> artistNames = party.artists.each { wrapper.getArtist(it).getName() }
+
+            println party.playlistId
 
             return [partyCode: party.getCode(), playlistID: party.playlistId, artists: artistNames, genres: party.genres ]
         } else {
