@@ -157,13 +157,15 @@ class PartyController {
     }
 
     private HashMap<String, Integer> getWordFrequency(ArrayList<String> words) {
+        final int multiplier = 20
+
         HashMap<String, Integer> wordFrequency = new HashMap<String, Integer>();
 
         for (String word : words) {
             if (wordFrequency.get(word)) {
-                wordFrequency.put(word, wordFrequency.get(word) + 1)
+                wordFrequency.put(word, wordFrequency.get(word) + multiplier)
             } else {
-                wordFrequency.put(word, 1)
+                wordFrequency.put(word, multiplier)
             }
         }
 
