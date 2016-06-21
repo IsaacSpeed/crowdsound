@@ -4,6 +4,7 @@ class UserController {
 
     def scaffold = crowdsound.User
     def index() { }
+
     def partyview() {
         String code = params.partyCode
         String nickname = params.nickname
@@ -14,10 +15,12 @@ class UserController {
         u.save()
 
         Party party = Party.findByCode(params.partyCode)
-        println params.partyCode
+        println "User trying to access party $params.partyCode..."
         if (party) {
             SpotifyWrapper wrapper = new SpotifyWrapper()
-            wrapper.setAccessToken(Auth.findByPartyCode(party.getCode()).authorize())
+            Auth auth = Auth.findByPartyCode(party.code)
+            wrapper.setAccessToken(auth.authorize())
+            println "Found party"
 
             String a1Id, a2Id, a3Id, a4Id, a5Id
             if (params.a1) a1Id = wrapper.getFirstArtistResultByName(params.a1)?.getId()
@@ -39,8 +42,6 @@ class UserController {
             if (params.g5) party.addGenre(params.g5)
 
             party.save()
-
-            Auth auth = Auth.findByPartyCode(party.code)
 
             return [ partyCode: party.getCode(), userId: auth.userId, playlistId: party.playlistId, artists: artistNames, genres: party.genres ]
         } else {
