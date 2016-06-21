@@ -173,19 +173,10 @@
                                     .text(function(d) { return d.text; });
                         }
                     </script>
-                    <svg class="wordcloud"><g transform="translate(320,200)">
-
-                    </g>
-
+                    <svg class="wordcloud">
+                        <g transform="translate(320,200)">
+                        </g>
                     </svg>
-                    <g:each in="${artists}">
-                        ${it}<br/>
-                    </g:each>
-                    <h1>Genres:</h1>
-                    <g:each in="${genres}">
-                        ${it}<br/>
-                    </g:each>
-
                 </div>
             </div>
         </div>
