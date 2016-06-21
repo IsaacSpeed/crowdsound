@@ -181,7 +181,6 @@ class PartyController {
             } else {
                 v = 20 + v
             }
-            v = 55
             wordFrequency.put(k, v)
         }
 
