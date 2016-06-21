@@ -50,7 +50,7 @@
 <section id="header">
     <div class="inner">
         <h3>Your party code is:</h3>
-        <h1><strong>${code}</strong></h1>
+        <h1><strong>${partyCode}</strong></h1>
     </div>
 </section>
 <section id="artistGenreChoice">
@@ -75,7 +75,7 @@
                         <g:textField name="genre3" placeholder="Third?"/><br/>
                         <g:textField name="genre4" placeholder="Didn't know they had this many genres"/><br/>
                         <g:textField name="genre5" id="genre5" placeholder="You've got a broad taste in music"/><br/>
-                        <g:hiddenField name="partyCode" value="${code}"/>
+                        <g:hiddenField name="partyCode" value="${partyCode}"/>
                         <g:actionSubmit value="Submit" action="adminview"/>
                         </div>
                     </g:form>
