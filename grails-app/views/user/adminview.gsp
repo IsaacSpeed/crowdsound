@@ -164,7 +164,7 @@
                     .text(function(d) { return d.text; });
         }
     </script>
-    <svg class="wordcloud" style="width: 100%; height: 100%">
+    <svg class="wordcloud" style="width: 1200px;height: 800px">
         <g transform="translate(320,200)">
         </g>
     </svg>
