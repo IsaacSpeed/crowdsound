@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row 150%">
                 <div class="6u 12u$(medium)">
-                    <iframe src="https://embed.spotify.com/?uri=spotify:user:${userId}:playlist:${playlistId}&theme=white" width="100%" height="50%" frameborder="0" allowtransparency="true"></iframe>
+                    <iframe id="spotifyPlayer" src="https://embed.spotify.com/?uri=spotify:user:${userId}:playlist:${playlistId}&theme=white" width="100%" height="300px" frameborder="0" allowtransparency="true"></iframe>
                 </div>
             </div>
         </div>
