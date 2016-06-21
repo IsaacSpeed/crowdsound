@@ -155,7 +155,7 @@
 
                         function draw(words) {
                             d3.select("body").append("svg")
-                                    .attr("width", 100%)
+                                    .attr("width", 1500)
                                     .attr("height", 500)
                                     .attr("class", "wordcloud main style2")
                                     .append("g")
