@@ -75,7 +75,7 @@
 
                             <div>
                                 <p>Genres</p>
-                                <g:select name="genres"
+                                <g:select name="genres" size="7"
                                           noSelection="${['null':'Select One...']}"
                                           from='${availableGenres}'
                                           multiple="true"/>
