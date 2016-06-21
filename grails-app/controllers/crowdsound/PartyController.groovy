@@ -123,10 +123,14 @@ class PartyController {
     def getGenresAndArtistsFrequency() {
         String partyCode = params.partyCode
         Party party = Party.findByCode(partyCode)
+        SpotifyWrapper wrapper = new SpotifyWrapper()
+        wrapper.setAccessToken(Auth.findByPartyCode(partyCode)?.authorize())
 
         if (partyCode && party) {
+            List artistNames = new ArrayList<String>()
+            party.artists.each { artistNames.add(wrapper.getArtist(it).getName())}
 
-            ArrayList<String> both = (party.genres + party.artists).findAll() as ArrayList<String>
+            ArrayList<String> both = (party.genres + artistNames).findAll() as ArrayList<String>
 
             HashMap frequency = getWordFrequency(both)
 
