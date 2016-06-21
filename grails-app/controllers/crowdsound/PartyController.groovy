@@ -157,7 +157,7 @@ class PartyController {
     }
 
     private HashMap<String, Integer> getWordFrequency(ArrayList<String> words) {
-        final int total = 1000
+        final int total = 80
 
         HashMap<String, Integer> wordFrequency = new HashMap<String, Integer>();
 
