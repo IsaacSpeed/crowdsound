@@ -1,6 +1,4 @@
-/**
- * Created by CW046360 on 6/20/2016.
- */
+
 (function(exports) {
     function cloud() {
         var size = [256, 256],
