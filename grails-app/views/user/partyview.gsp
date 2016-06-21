@@ -27,10 +27,6 @@
     </section>
 </section>
 <section id="partyViewSection">
-    <section id="partyView" class="main style2">
-        <div class="container">
-            <div class="row 150%">
-                <div class="6u 12u$(medium)">
                     <script>
                         var frequency_list = getGenresAndArtistsFrequency();
                         var cloudlist = JSON.parse(frequency_list).word_freq;
@@ -48,6 +44,7 @@
                         function draw(words) {
                             d3.select("body").append("svg")
                                     .attr("height", 500)
+                                    .attr("width", getParent().width)
                                     .attr("class", "wordcloud")
                                     .append("g")
                                     // without the transform, words words would get cutoff to the left and top, they would
@@ -68,10 +65,6 @@
                         <g transform="translate(320,200)">
                         </g>
                     </svg>
-                </div>
-            </div>
-        </div>
-    </section>
 </section>
 
 <!-- Footer -->
