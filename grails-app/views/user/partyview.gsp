@@ -58,9 +58,9 @@
                 .range(["#ddd", "#ccc", "#bbb", "#aaa", "#999", "#888", "#777", "#666", "#555", "#444", "#333", "#222"]);
 
             d3.layout.cloud()
+                .size([500,500])
                 .words(cloudlist)
                 .rotate(0)
-                .size([50,50])
                 .fontSize(function(d) {
                     return d.size;
                 })
@@ -70,12 +70,12 @@
             function draw(words) {
                 d3.select("body").append("svg")
                     .attr("class", "wordcloud")
-                    .attr("width", $(document).width())
-                    .attr("height", 800)
+                    .attr("width", layout.size()[0])
+                    .attr("height", layout.size()[1])
                     .append("g")
                     // without the transform, words words would get cutoff to the left and top, they would
                     // appear outside of the SVG area
-                    .attr("transform", "translate(320,200)")
+                    .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
                     .selectAll("text")
                     .data(words)
                     .enter().append("text")
