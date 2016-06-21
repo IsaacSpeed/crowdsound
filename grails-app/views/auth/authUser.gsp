@@ -76,7 +76,7 @@
                         <g:textField name="genre4" placeholder="Didn't know they had this many genres"/><br/>
                         <g:textField name="genre5" id="genre5" placeholder="You've got a broad taste in music"/><br/>
                         <g:hiddenField name="partyCode" value="${partyCode}"/>
-                        <g:actionSubmit value="Submit" action="adminview"/>
+                        <g:actionSubmit value="Submit" action="partyview"/>
                         </div>
                     </g:form>
                 </div>
