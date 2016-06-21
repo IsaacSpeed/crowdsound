@@ -16,7 +16,7 @@
         <h1><strong>${partyCode}</strong></h1>
     </div>
 </section>
-<section id="artistGenreChoice" style="width: 43%; margin: 0 auto">
+<section id="artistGenreChoice" style="width: 100%; margin: 0 auto">
     <section id="musicSubmission" class="main style1">
         <div class="container">
             <div class="6u 12u$(medium)">
