@@ -59,7 +59,8 @@
 
             function processRequest(e) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    frequency_list = xhr.responseText ;
+                    alert(xhr.responseText);
+                    frequency_list = xhr.responseText;
                 }
             }
         }
