@@ -9,7 +9,7 @@ class UserController {
         println params.genres
         String code = params.partyCode
         String nickname = params.nickname
-        String artists = params.a1 + ", " + params.a2 + ", " + params.a3 + ", " + params.a4 + ", " + params.a5
+        String artists = params.artist1 + ", " + params.artist2 + ", " + params.artist3 + ", " + params.artist4 + ", " + params.artist5
         List genres = [params.genres].flatten()
         int admin = 0
 

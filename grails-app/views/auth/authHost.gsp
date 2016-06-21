@@ -38,7 +38,6 @@
                             <div style="width: 50%; margin-right: 25px; margin-left: 25px">
                                 <p>Genres</p>
                                 <g:select name="genres" style="height: 435px"
-                                          noSelection="${['null':'Select Genres...']}"
                                           from='${availableGenres}'
                                           multiple="true"/>
                                 <g:hiddenField name="partyCode" value="${partyCode}"/>
