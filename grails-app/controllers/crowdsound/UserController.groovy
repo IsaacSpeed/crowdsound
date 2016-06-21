@@ -43,6 +43,10 @@ class UserController {
 
             party.save()
 
+            List<String> artistNames = new ArrayList<String>()
+
+            party.artists.each { artistNames.add(wrapper.getArtist(it).getName()) }
+
             render(view:"partyview")
 
             return [ partyCode: party.getCode(), userId: auth.userId, playlistId: party.playlistId, artists: artistNames, genres: party.genres ]
