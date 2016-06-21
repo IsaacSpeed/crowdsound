@@ -73,6 +73,7 @@ class Party {
         // if not, pick five random artists and five random genres
         Collections.shuffle(artists)
         Collections.shuffle(genres)
+        println "Party $code genres: $genres"
 
         List artistsToSeed = artists.take(3)
         List genresToSeed = genres.take(2)

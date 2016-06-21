@@ -6,12 +6,13 @@ class UserController {
     def index() { }
 
     def partyview() {
+        println params.genres
         String code = params.partyCode
         String nickname = params.nickname
         String artists = params.a1 + ", " + params.a2 + ", " + params.a3 + ", " + params.a4 + ", " + params.a5
-        String genres = params.g1 + ", " + params.g2 + ", " + params.g3 + ", " + params.g4 + ", " + params.g5
+        List genres = params.genres
         int admin = 0
-        User u = new User(code, nickname, artists, genres, admin)
+        User u = new User(code, nickname, artists, genres.join(","), admin)
         u.save()
 
         Party party = Party.findByCode(params.partyCode)
@@ -33,11 +34,7 @@ class UserController {
             if (a4Id) party.addArtist(a4Id)
             if (a5Id) party.addArtist(a5Id)
 
-            if (params.genre1) party.addGenre(params.genre1)
-            if (params.genre2) party.addGenre(params.genre2)
-            if (params.genre3) party.addGenre(params.genre3)
-            if (params.genre4) party.addGenre(params.genre4)
-            if (params.genre5) party.addGenre(params.genre5)
+            if (params.genres) genres.each { party.addGenre(it) }
 
             party.save()
 
@@ -72,11 +69,7 @@ class UserController {
             if (a4Id) party.addArtist(a4Id)
             if (a5Id) party.addArtist(a5Id)
 
-            if (params.genre1) party.addGenre(params.genre1)
-            if (params.genre2) party.addGenre(params.genre2)
-            if (params.genre3) party.addGenre(params.genre3)
-            if (params.genre4) party.addGenre(params.genre4)
-            if (params.genre5) party.addGenre(params.genre5)
+            if (params.genres) params.genres.each { party.addGenre(it) }
 
             println "These are our params: $params"
             println party.artists + party.genres
