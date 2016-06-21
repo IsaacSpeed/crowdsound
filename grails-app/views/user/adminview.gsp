@@ -49,7 +49,7 @@
         var frequency_list
         function getGenresAndArtistsFrequency() {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://crowdsound.us/party/returnGenresAndArtists?partyCode=${partyCode}', true);
+            xhr.open('GET', 'http://crowdsound.us/party/getGenresAndArtists?partyCode=${partyCode}', true);
             xhr.send();
 
             xhr.onreadystatechange = processRequest;
