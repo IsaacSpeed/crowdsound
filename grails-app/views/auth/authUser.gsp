@@ -22,7 +22,7 @@
             <div class="6u 12u$(medium)">
                 <g:form controller="User" action="partyview">
                     <h3 style="margin-top: -50px"><strong>What's your name?</strong></h3>
-                    <input type="text" id="nickname" placeholder="It doesn't have to be your real name!"><br>
+                    <g:textField name="nickname" placeholder="It doesn't have to be your real name!"/><br>
 
                     <h3 style="margin-top: 10px"><strong>Enter up to 5 of each:</strong></h3>
                     <div style="width: 100%; display: inline-flex; margin-top: -30px">
