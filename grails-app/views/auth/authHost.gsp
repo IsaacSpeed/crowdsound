@@ -50,7 +50,7 @@
 <section id="header">
     <div class="inner">
         <h3>Your party code is:</h3>
-        <h1><strong>${code}</strong></h1>
+        <h1><strong>${partyCode}</strong></h1>
     </div>
 </section>
 <section id="artistGenreChoice">
@@ -80,7 +80,7 @@
                                 <g:textField name="genre3"/><br/>
                                 <g:textField name="genre4"/><br/>
                                 <g:textField name="genre5"/><br/>
-                                <g:hiddenField name="partyCode" value="${code}"/>
+                                <g:hiddenField name="partyCode" value="${partyCode}"/>
                             </div>
                         </div>
                         <g:actionSubmit value="Submit" action="adminview"/>
