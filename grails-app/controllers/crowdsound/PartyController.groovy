@@ -145,9 +145,9 @@ class PartyController {
 
         wordFrequency.each { word, frequency ->
             if (wordsJson) {
-                wordsJson = """$wordsJson,{"text": "$word", size: $frequency}"""
+                wordsJson = """$wordsJson,{"text": "$word", "size": $frequency}"""
             } else {
-                wordsJson = """{"word_freq": [{"text": "$word", size: $frequency}"""
+                wordsJson = """{"word_freq": [{"text": "$word", "size": $frequency}"""
             }
         }
         wordsJson = "$wordsJson]}"
