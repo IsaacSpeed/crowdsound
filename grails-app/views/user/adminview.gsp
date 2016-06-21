@@ -37,23 +37,17 @@
 
         function isPartyStarted() {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://crowdsound.us/party/isStarted?partyCode=${partyCode}', true);
+            xhr.open('GET', 'http://crowdsound.us/party/isStarted?partyCode=${partyCode}', false);
             xhr.send();
 
-            xhr.onreadystatechange = processRequest;
-
-            function processRequest(e) {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    alert("Response: " + xhr.responseText);
-                    alert(xhr.responseText === "true");
-                    return (xhr.responseText === "true");
-                }
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                return (xhr.responseText === "true");
             }
         }
 
         function reloadPlaylist() {
-            var playlistLink = $("#spotifyPlayer").location.href;
-            $("#spotifyPlayer").location.href = playlistLink;
+            var frameContent = $("#spotifyPlayer").content;
+            $("#spotifyPlayer").content = frameContent;
         }
 
         function getGenresAndArtistsFrequency() {
@@ -62,7 +56,6 @@
             xhr.send();
 
             if (xhr.readyState == 4 && xhr.status == 200) {
-                    alert(xhr.responseText);
                     return xhr.responseText;
             }
         }
@@ -77,7 +70,6 @@
             function processRequest(e) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var response = xhr.responseText;
-                    alert(response);
                 }
             }
         }
@@ -101,7 +93,6 @@
             var xhr = new XMLHttpRequest();
             xhr.open('GET', 'http://crowdsound.us/party/end?partyCode=${partyCode}', true);
             xhr.send();
-            alert("Ending party!");
 
             xhr.onreadystatechange = processRequest;
 

@@ -6,6 +6,7 @@ class UserController {
     def index() { }
 
     def partyview() {
+        println params.genres
         String code = params.partyCode
         String nickname = params.nickname
         String artists = params.a1 + ", " + params.a2 + ", " + params.a3 + ", " + params.a4 + ", " + params.a5
