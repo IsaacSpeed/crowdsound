@@ -1,5 +1,7 @@
 package crowdsound
 
+import groovy.json.JsonOutput
+
 class PartyController {
 
     def index() { render "nope" }
@@ -116,11 +118,40 @@ class PartyController {
         }
     }
 
-    private String wordFrequencyToJson(HashMap<String, Integer> wordFrequency) {
+    def returnGenresAndArtistsFrequency() {
+        String partyCode = params.partyCode
+        Party party = Party.findByCode(partyCode)
 
+        if (partyCode && party) {
+            String[] genres = party.genres.split(',')
+            String[] artists = party.artists.split(',')
+
+            ArrayList<String> both = (genres + artists).findAll() as ArrayList<String>
+
+            HashMap frequency = getWordFrequency(both)
+
+            render wordFrequencyToJson(frequency)
+        } else {
+            render "Invalid party code"
+        }
     }
 
-    private HashMap<String, Integer> getWordFrequency(List<String> words) {
+    private String wordFrequencyToJson(HashMap<String, Integer> wordFrequency) {
+        String wordsJson
+
+        wordFrequency.each { word, frequency ->
+            if (wordsJson) {
+                wordsJson = """$wordsJson,{"text": "$word", size: $frequency}"""
+            } else {
+                wordsJson = """{"word_freq": [{"text": "$word", size: $frequency}"""
+            }
+        }
+        wordsJson = "$wordsJson]}"
+
+        return wordsJson
+    }
+
+    private HashMap<String, Integer> getWordFrequency(ArrayList<String> words) {
         HashMap<String, Integer> wordFrequency = new HashMap<String, Integer>();
 
         for (String word : words) {
