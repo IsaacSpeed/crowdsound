@@ -145,6 +145,7 @@
             d3.layout.cloud()
                 .words(cloudlist)
                 .rotate(0)
+                .size([5,5])
                 .fontSize(function(d) {
                     return d.size;
                 })
