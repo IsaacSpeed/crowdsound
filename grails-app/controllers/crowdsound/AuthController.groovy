@@ -25,14 +25,13 @@ class AuthController {
     }
 
     def authHost() {
-        String partyCode
-        String code = params.code
+        String partyCode = params.code
 
-        if (!code) {
+        if (!partyCode) {
             render "Please log in."
         }
 
-        Auth auth = new Auth(code)
+        Auth auth = new Auth(partyCode)
 
         // check to see if the user is already in the database
         if (Auth.findByUserId(auth.userId)) {
