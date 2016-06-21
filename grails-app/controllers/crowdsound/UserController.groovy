@@ -14,6 +14,7 @@ class UserController {
         int admin = 0
         User u = new User(code, nickname, artists, genres.join(","), admin)
         u.save()
+        println u.errors.allErrors
 
         Party party = Party.findByCode(params.partyCode)
         if (party) {
