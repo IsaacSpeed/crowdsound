@@ -1477,7 +1477,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 	header p {
 		color: #999;
-		margin: 0 0 1.5em 0;
+		margin: 0 0 0 0;
 		position: relative;
 	}
 
@@ -1502,7 +1502,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	}
 
 	header.major {
-		margin: 0 0 1em 0;
+		margin: 0 0 0 0;
 	}
 
 		header.major:after {
@@ -2411,11 +2411,11 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		}
 
 		#header p {
-			margin: 1em 0 0 0;
+			margin: 0 0 0 0;
 		}
 
 		#header .actions {
-			margin: 2.5em 0 0 0;
+			margin: 0 0 0 0;
 			position: relative;
 		}
 
@@ -2644,7 +2644,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		/* Header */
 
 			#header {
-				padding: 3em 0em 3em 0em ;
+				padding: 1em 0em 1em 0em ;
 				max-height: 15%;
 			}
 
@@ -2736,11 +2736,11 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		/* Header */
 
 			#header {
-				padding: 4em .5em 4em .5em ;
+				padding: 2em .5em 2em .5em ;
 			}
 
 				#header .actions {
-					margin: 2em 0 0 0;
+					margin: 1em 0 0 0;
 				}
 
 		/* Footer */
@@ -2807,7 +2807,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		/* Header */
 
 			#header {
-				padding: 4em .5em 4em .5em ;
+				padding: 1em .5em 1em .5em ;
 			}
 
 				#header br {
@@ -2856,7 +2856,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		/* Header */
 
 			#header {
-				padding: 3em 0em 3em 0em ;
+				padding: 1em 0em 1em 0em ;
 			}
 
 		/* Footer */
