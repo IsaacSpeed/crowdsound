@@ -47,8 +47,6 @@ class UserController {
 
             party.artists.each { artistNames.add(wrapper.getArtist(it).getName()) }
 
-            render(view:"partyview")
-
             return [ partyCode: party.getCode(), userId: auth.userId, playlistId: party.playlistId, artists: artistNames, genres: party.genres ]
         } else {
             render "ERROR could not find party"
