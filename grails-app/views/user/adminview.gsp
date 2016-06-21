@@ -149,7 +149,6 @@
 
         function draw(words) {
             d3.select("body").append("svg")
-                    .attr("height", 500)
                     .attr("class", "wordcloud")
                     .append("g")
                     // without the transform, words words would get cutoff to the left and top, they would
@@ -166,7 +165,7 @@
                     .text(function(d) { return d.text; });
         }
     </script>
-    <svg class="wordcloud" style="width: 100%">
+    <svg class="wordcloud" style="width: 100%; height: 100%">
         <g transform="translate(320,200)">
         </g>
     </svg>
