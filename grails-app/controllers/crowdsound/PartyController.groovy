@@ -170,7 +170,18 @@ class PartyController {
         }
 
         wordFrequency.each {k, v ->
-            v = total * (v / words.size()) as int
+            float percent = (v as float) / (words.size() as float) * 100
+
+            if (percent > 75) {
+                v = 60
+            } else if (percent > 50) {
+                v = 40
+            } else if (percent > 35) {
+                v = 20
+            } else {
+                v = 7
+            }
+
             wordFrequency.put(k, v)
         }
 
