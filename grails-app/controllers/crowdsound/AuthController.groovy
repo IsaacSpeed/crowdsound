@@ -76,7 +76,7 @@ class AuthController {
         List availableGenres = wrapper.getAvailableGenres();
         println availableGenres
 
-        [partyCode: code, availableGenres: availableGenres, username:auth.userId]
+        [partyCode: partyCode, availableGenres: availableGenres, username:auth.userId]
     }
 
     private String generatePartyCode() {

@@ -50,7 +50,7 @@
 <section id="header">
     <div class="inner">
         <h3>Your party code is:</h3>
-        <h1><strong>${partyCode}</strong></h1>
+        <h1><strong>${partyCode} or ${params.code}</strong></h1>
     </div>
 </section>
 <section id="artistGenreChoice">
@@ -75,12 +75,11 @@
 
                             <div>
                                 <p>Genres</p>
-                                <g:textField name="genre1"/><br/>
-                                <g:textField name="genre2"/><br/>
-                                <g:textField name="genre3"/><br/>
-                                <g:textField name="genre4"/><br/>
-                                <g:textField name="genre5"/><br/>
-                                <g:hiddenField name="partyCode" value="${code}"/>
+                                <g:select name="genres"
+                                          noSelection="${['null':'Select One...']}"
+                                          from='${availableGenres}'
+                                          multiple="true"/>
+                                <g:hiddenField name="partyCode" value="${partyCode}"/>
                             </div>
                         </div>
                         <g:actionSubmit value="Submit" action="partyview"/>
