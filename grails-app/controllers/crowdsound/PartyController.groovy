@@ -110,6 +110,7 @@ class PartyController {
             Party party = Party.findByCode(partyCode)
 
             if (party) {
+                println "Party $party.code/$partyCode is started? $party.isStarted"
                 render party.isStarted
             } else {
                 render "Invalid party code"
