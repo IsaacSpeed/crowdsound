@@ -50,19 +50,15 @@
                 }
             }
         }
-        var frequency_list
+
         function getGenresAndArtistsFrequency() {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://crowdsound.us/party/getGenresAndArtistsFrequency?partyCode=${partyCode}', true);
+            xhr.open('GET', 'http://crowdsound.us/party/getGenresAndArtistsFrequency?partyCode=${partyCode}', false);
             xhr.send();
 
-            xhr.onreadystatechange = processRequest();
-
-            function processRequest(e) {
-                if (xhr.readyState == 4 && xhr.status == 200) {
+            if (xhr.readyState == 4 && xhr.status == 200) {
                     alert(xhr.responseText);
-                    frequency_list = xhr.responseText;
-                }
+                    return xhr.responseText;
             }
         }
 
@@ -144,7 +140,7 @@
             <div class="row 150%">
                 <div class="6u 12u$(medium)">
                     <script>
-                        getGenresAndArtistsFrequency()
+                        var frequency_list = getGenresAndArtistsFrequency();
                         var cloudlist = JSON.parse(frequency_list).word_freq;
                         var color = d3.scale.linear()
                                 .domain([0,1,2,3,4,5,6,10,15,20,100])
