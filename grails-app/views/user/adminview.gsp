@@ -141,7 +141,6 @@
         <div class="container">
             <div class="row 150%">
                 <div class="6u 12u$(medium)">
-                    <h1>Artists:</h1>
                     <script>
 
                         var cloudlist = JSON.parse(frequency_list).word_freq;
