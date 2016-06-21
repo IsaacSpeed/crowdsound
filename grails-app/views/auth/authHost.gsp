@@ -59,24 +59,31 @@
             <div class="row 150%">
                 <div class="6u 12u$(medium)">
                     <g:form controller="User" action="adminview">
-                        <h3>What's your name?</h3>
+                        <h3 style="margin-top: -50px"><strong>What's your name?</strong></h3>
                         <input type="text" id="nickname" placeholder="It doesn't have to be your real name!"><br>
-                        <h3>Pick your Top 5's</h3>
-                        <div style="float: left;"></div><p>Artists</p>
-                            <g:textField name="artist1" placeholder="Who's your favorite artist?"/><br/>
-                            <g:textField name="artist2" placeholder="Second favorite?"/><br/>
-                            <g:textField name="artist3" placeholder="Third?"/><br/>
-                            <g:textField name="artist4" placeholder="Fourth?!"/><br/>
-                            <g:textField name="artist5" placeholder="You've got a lot of artists in mind"/><br/>
+
+                        <h3 style="margin-top: 10px"><strong>Enter up to 5 of each:</strong></h3>
+                        <div style="width: 100%; display: inline-flex; margin-top: -30px">
+                            <div style="margin-right: 100px; margin-left: 50px">
+                                <p>Artists</p>
+                                <g:textField name="artist1"/><br/>
+                                <g:textField name="artist2"/><br/>
+                                <g:textField name="artist3"/><br/>
+                                <g:textField name="artist4"/><br/>
+                                <g:textField name="artist5"/><br/>
+                            </div>
+
+                            <div>
+                                <p>Genres</p>
+                                <g:textField name="genre1"/><br/>
+                                <g:textField name="genre2"/><br/>
+                                <g:textField name="genre3"/><br/>
+                                <g:textField name="genre4"/><br/>
+                                <g:textField name="genre5"/><br/>
+                                <g:hiddenField name="partyCode" value="${code}"/>
+                            </div>
                         </div>
-                        <div style="float: right;"><p>Genres</p>
-                            <g:select name="genres"
-                                      from="${availableGenres}"
-                                      noSelection="${['null':'Select genres!']}"
-                                      multiple="true" />
-                            <g:hiddenField name="partyCode" value="${code}"/>
-                            <g:actionSubmit value="Submit" action="adminview"/>
-                        </div>
+                        <g:actionSubmit value="Submit" action="adminview"/>
                     </g:form>
                 </div>
             </div>
