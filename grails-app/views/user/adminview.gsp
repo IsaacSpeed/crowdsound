@@ -9,10 +9,12 @@
     <script>
     //todo fix this
         $(document).ready(function() {
+            $("#start").hide();
+            $("#stop").hide();
             if(isPartyStarted()) {
-                $("#start").hide();
+                $("#stop").show();
             } else {
-                $("#stop").hide();
+                $("#start").show();
             }
 
             $("#start").click(function() {
@@ -42,6 +44,7 @@
 
             function processRequest(e) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
+                    alert(xhr.responsetext);
                     return (xhr.responseText === "true");
                 }
             }
