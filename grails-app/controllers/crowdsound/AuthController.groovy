@@ -21,7 +21,11 @@ class AuthController {
             println party.artists
         }
 
-        [partyCode: code]
+        SpotifyWrapper wrapper = new SpotifyWrapper();
+        wrapper.setAccessToken(Auth.findByPartyCode(party.code).authorize())
+        List availableGenres = wrapper.getGenres();
+
+        [partyCode: code, availableGenres: availableGenres]
     }
 
     def authHost() {
@@ -67,7 +71,12 @@ class AuthController {
             party.save(failOnError: true, flush: true)
         }
 
-        [code:partyCode, username:auth.userId]
+        SpotifyWrapper wrapper = new SpotifyWrapper();
+        wrapper.setAccessToken(Auth.findByPartyCode(party.code).authorize())
+        List availableGenres = wrapper.getAvailableGenres();
+        println availableGenres
+
+        [partyCode: code, availableGenres: availableGenres, username:auth.userId]
     }
 
     private String generatePartyCode() {

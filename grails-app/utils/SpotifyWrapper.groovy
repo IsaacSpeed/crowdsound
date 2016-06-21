@@ -4,6 +4,7 @@ import com.wrapper.spotify.Api
 import com.wrapper.spotify.JsonUtil
 import com.wrapper.spotify.models.*
 import com.wrapper.spotify.methods.*
+import groovy.json.JsonSlurper
 import wslite.rest.ContentType
 import wslite.rest.RESTClient
 import wslite.rest.RESTClientException
@@ -52,6 +53,25 @@ class SpotifyWrapper {
         }
 
         return JsonUtil.createTracks(response.contentAsString)
+    }
+
+    public List<String> getAvailableGenres() {
+        RESTClient client = new RESTClient("https://api.spotify.com/v1/")
+        String endpoint = "recommendations/available-genre-seeds"
+        String authorization = "Bearer $accessToken"
+        JsonSlurper slurper = new JsonSlurper()
+        Response response
+        List<String> genres
+
+        try {
+            response = client.get(path: endpoint, headers: ['Authorization': authorization])
+            genres = slurper.parseText(response.contentAsString).genres as List
+        } catch (RESTClientException e) {
+            println "Error getting genres! $e.message"
+            genres = ["No available genres"]
+        }
+
+        return genres
     }
 
     /**
