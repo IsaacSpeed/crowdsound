@@ -161,7 +161,7 @@
                                     .text(function(d) { return d.text; });
                         }
                     </script>
-                    <svg width="850" height="350" class="wordcloud"><g transform="translate(320,200)">
+                    <svg class="wordcloud"><g transform="translate(320,200)">
 
                     </g>
 
