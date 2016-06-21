@@ -51,7 +51,6 @@
                     </g:form>
                 </div>
             </div>
-        </div>
     </section>
 </section>
 <!-- Footer -->
