@@ -10,7 +10,7 @@ class UserController {
         String code = params.partyCode
         String nickname = params.nickname
         String artists = params.a1 + ", " + params.a2 + ", " + params.a3 + ", " + params.a4 + ", " + params.a5
-        List genres = params.genres
+        List genres = [params.genres].flatten()
         int admin = 0
         User u = new User(code, nickname, artists, genres.join(","), admin)
         u.save()
@@ -34,7 +34,7 @@ class UserController {
             if (a4Id) party.addArtist(a4Id)
             if (a5Id) party.addArtist(a5Id)
 
-            if (params.genres) genres.each { party.addGenre(it) }
+            if (genres) genres.each { party.addGenre(it) }
 
             party.save()
 
@@ -52,7 +52,7 @@ class UserController {
         Party party = Party.findByCode(params.partyCode)
         println params.partyCode
         if (party) {
-            println params.genres
+            List genres = [params.genres].flatten()
             SpotifyWrapper wrapper = new SpotifyWrapper()
             wrapper.setAccessToken(Auth.findByPartyCode(party.getCode()).authorize())
 
@@ -69,7 +69,7 @@ class UserController {
             if (a4Id) party.addArtist(a4Id)
             if (a5Id) party.addArtist(a5Id)
 
-            if (params.genres) params.genres.each { party.addGenre(it) }
+            if (genres) genres.each { party.addGenre(it) }
 
             println "These are our params: $params"
             println party.artists + party.genres
