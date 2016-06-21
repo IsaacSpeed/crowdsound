@@ -46,6 +46,20 @@
                 }
             }
         }
+        var frequency_list
+        function getGenresAndArtistsFrequency() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://crowdsound.us/party/returnGenresAndArtists?partyCode=${partyCode}', true);
+            xhr.send();
+
+            xhr.onreadystatechange = processRequest;
+
+            function processRequest(e) {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    frequency_list = xhr.responseText ;
+                }
+            }
+        }
 
         function startParty() {
             var xhr = new XMLHttpRequest();
@@ -127,15 +141,13 @@
                     <h1>Artists:</h1>
                     <script>
 
-                        var frequency_list = [{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()}];
-
-
+                        var cloudlist = JSON.parse(frequency_list).word_freq;
                         var color = d3.scale.linear()
                                 .domain([0,1,2,3,4,5,6,10,15,20,100])
                                 .range(["#ddd", "#ccc", "#bbb", "#aaa", "#999", "#888", "#777", "#666", "#555", "#444", "#333", "#222"]);
 
                         d3.layout.cloud().size([800, 300])
-                                .words(frequency_list)
+                                .words(cloudlist)
                                 .rotate(0)
                                 .fontSize(function(d) { return d.size; })
                                 .on("end", draw)
