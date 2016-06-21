@@ -6,43 +6,6 @@
     <title>CrowdSound</title>
 
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
-    <script>
-        $("#app").ready(function(){
-            $("#artist2").hide();
-            $("#artist3").hide();
-            $("#artist4").hide();
-            $("#artist5").hide();
-            $("#genre2").hide();
-            $("#genre3").hide();
-            $("#genre4").hide();
-            $("#genre5").hide();
-            $("#artist1").focus(function(){
-                $("#artist2").show();
-            });
-            $("#artist2").focus(function(){
-                $("#artist3").show();
-            });
-            $("#artist3").focus(function(){
-                $("#artist4").show();
-            });
-            $("#artist4").focus(function(){
-                $("#artist5").show();
-            });
-
-            $("#genre1").focus(function(){
-                $("#genre2").show();
-            });
-            $("#genre2").focus(function(){
-                $("#genre3").show();
-            });
-            $("#genre3").focus(function(){
-                $("#genre4").show();
-            });
-            $("#genre4").focus(function(){
-                $("#genre5").show();
-            });
-        });
-    </script>
 </head>
 <body>
 

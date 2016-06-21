@@ -5,6 +5,22 @@
     <title>CrowdSound</title>
 
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
+
+    <script>
+        function reloadPlaylist() {
+            document.getElementById('spotifyPlayer').src = document.getElementById('spotifyPlayer').src
+        }
+
+        function getGenresAndArtistsFrequency() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://crowdsound.us/party/getGenresAndArtistsFrequency?partyCode=${partyCode}', false);
+            xhr.send();
+
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                return xhr.responseText;
+            }
+        }
+    </script>
 </head>
 <body>
 
