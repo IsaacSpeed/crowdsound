@@ -100,7 +100,7 @@ class PartyController {
         }
     }
 
-    def isPartyStarted() {
+    def isStarted() {
         String partyCode = params.partyCode
 
         if (partyCode) {
@@ -114,5 +114,23 @@ class PartyController {
         } else {
             render "No party code specified"
         }
+    }
+
+    private String wordFrequencyToJson(HashMap<String, Integer> wordFrequency) {
+
+    }
+
+    private HashMap<String, Integer> getWordFrequency(List<String> words) {
+        HashMap<String, Integer> wordFrequency = new HashMap<String, Integer>();
+
+        for (String word : words) {
+            if (wordFrequency.get(word)) {
+                wordFrequency.put(word, wordFrequency.get(word) + 1)
+            } else {
+                wordFrequency.put(word, 1)
+            }
+        }
+
+        return wordFrequency
     }
 }
