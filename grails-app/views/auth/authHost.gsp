@@ -53,10 +53,9 @@
         <h1><strong>${partyCode}</strong></h1>
     </div>
 </section>
-<section id="artistGenreChoice">
+<section id="artistGenreChoice" style="width: 43%; margin: 0 auto">
     <section id="musicSubmission" class="main style1">
         <div class="container">
-            <div class="row 150%">
                 <div class="6u 12u$(medium)">
                     <g:form controller="User" action="adminview">
                         <h3 style="margin-top: -50px"><strong>What's your name?</strong></h3>
@@ -86,7 +85,6 @@
                         <g:actionSubmit value="Submit" action="adminview"/>
                         <br/>
                     </g:form>
-
                 </div>
             </div>
         </div>
