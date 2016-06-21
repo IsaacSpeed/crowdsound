@@ -61,7 +61,7 @@
                                     .text(function(d) { return d.text; });
                         }
                     </script>
-                    <svg class="wordcloud">
+                    <svg class="wordcloud" style="width: 100%">
                         <g transform="translate(320,200)">
                         </g>
                     </svg>
