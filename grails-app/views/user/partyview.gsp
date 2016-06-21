@@ -38,6 +38,8 @@
         <div class="container">
             <div class="row 150%">
                 <div class="6u 12u$(medium)">
+                    <!-- todo make this occur on an interval -->
+                    <button id="refreshPlaylist" onclick="reloadPlaylist()">Refresh playlist</button>
                     <iframe id="spotifyPlayer" src="https://embed.spotify.com/?uri=spotify:user:${userId}:playlist:${playlistId}&theme=white" width="100%" height="300px" frameborder="0" allowtransparency="true"></iframe>
                 </div>
             </div>
