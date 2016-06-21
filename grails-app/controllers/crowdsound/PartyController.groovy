@@ -17,6 +17,7 @@ class PartyController {
             if (party) {
                 party.start()
                 party.save()
+                println "Party $partyCode has started! $party.isStarted"
 
                 // add two extra songs, in case someone skips a song?
                 party.addSong()
