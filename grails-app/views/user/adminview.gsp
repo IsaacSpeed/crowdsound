@@ -9,10 +9,12 @@
     <script>
     //todo fix this
         $(document).ready(function() {
+            $("#start").hide();
+            $("#stop").hide();
             if(isPartyStarted()) {
-                $("#start").hide();
+                $("#stop").show();
             } else {
-                $("#stop").hide();
+                $("#start").show();
             }
 
             $("#start").click(function() {
@@ -42,6 +44,7 @@
 
             function processRequest(e) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
+                    alert("Response: " + xhr.responsetext);
                     return (xhr.responseText === "true");
                 }
             }
@@ -49,7 +52,7 @@
         var frequency_list
         function getGenresAndArtistsFrequency() {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://crowdsound.us/party/returnGenresAndArtists?partyCode=${partyCode}', true);
+            xhr.open('GET', 'http://crowdsound.us/party/getGenresAndArtists?partyCode=${partyCode}', true);
             xhr.send();
 
             xhr.onreadystatechange = processRequest;

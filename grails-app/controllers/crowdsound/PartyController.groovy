@@ -118,15 +118,13 @@ class PartyController {
         }
     }
 
-    def returnGenresAndArtistsFrequency() {
+    def getGenresAndArtistsFrequency() {
         String partyCode = params.partyCode
         Party party = Party.findByCode(partyCode)
 
         if (partyCode && party) {
-            String[] genres = party.genres.split(',')
-            String[] artists = party.artists.split(',')
 
-            ArrayList<String> both = (genres + artists).findAll() as ArrayList<String>
+            ArrayList<String> both = (party.genres + party.artists).findAll() as ArrayList<String>
 
             HashMap frequency = getWordFrequency(both)
 

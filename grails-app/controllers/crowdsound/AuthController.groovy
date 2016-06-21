@@ -12,16 +12,16 @@ class AuthController {
 
     def authUser() {
         def code = params.userCode
-        def nickname = params
         println "User entered PartyCode: " + code
 
-        //TODO check partycode against database
         Party party = Party.findByCode(params.userCode)
         if (!party) {
             render "That's not a valid party code!"
         } else {
             println party.artists
         }
+
+        [partyCode: code]
     }
 
     def authHost() {
