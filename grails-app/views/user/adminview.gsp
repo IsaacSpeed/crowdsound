@@ -149,6 +149,7 @@
         function draw(words) {
             d3.select("body").append("svg")
                     .attr("class", "wordcloud")
+
                     .append("g")
                     // without the transform, words words would get cutoff to the left and top, they would
                     // appear outside of the SVG area
@@ -164,10 +165,6 @@
                     .text(function(d) { return d.text; });
         }
     </script>
-    <svg class="wordcloud" style="width: 1200px;height: 800px">
-        <g transform="translate(320,200)">
-        </g>
-    </svg>
 </section>
 <!-- Footer -->
 </body>
