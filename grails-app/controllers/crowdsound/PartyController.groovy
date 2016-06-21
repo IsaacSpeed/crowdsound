@@ -123,10 +123,14 @@ class PartyController {
     def getGenresAndArtistsFrequency() {
         String partyCode = params.partyCode
         Party party = Party.findByCode(partyCode)
+        SpotifyWrapper wrapper = new SpotifyWrapper()
+        wrapper.setAccessToken(Auth.findByPartyCode(partyCode)?.authorize())
 
         if (partyCode && party) {
+            List artistNames = new ArrayList<String>()
+            party.artists.each { artistNames.add(wrapper.getArtist(it).getName())}
 
-            ArrayList<String> both = (party.genres + party.artists).findAll() as ArrayList<String>
+            ArrayList<String> both = (party.genres + artistNames).findAll() as ArrayList<String>
 
             HashMap frequency = getWordFrequency(both)
 
@@ -136,14 +140,15 @@ class PartyController {
         }
     }
 
+
     private String wordFrequencyToJson(HashMap<String, Integer> wordFrequency) {
         String wordsJson
 
         wordFrequency.each { word, frequency ->
             if (wordsJson) {
-                wordsJson = """$wordsJson,{"text": "$word", size: $frequency}"""
+                wordsJson = """$wordsJson,{"text": "$word", "size": $frequency}"""
             } else {
-                wordsJson = """{"word_freq": [{"text": "$word", size: $frequency}"""
+                wordsJson = """{"word_freq": [{"text": "$word", "size": $frequency}"""
             }
         }
         wordsJson = "$wordsJson]}"
@@ -152,13 +157,15 @@ class PartyController {
     }
 
     private HashMap<String, Integer> getWordFrequency(ArrayList<String> words) {
+        final int multiplier = 20
+
         HashMap<String, Integer> wordFrequency = new HashMap<String, Integer>();
 
         for (String word : words) {
             if (wordFrequency.get(word)) {
-                wordFrequency.put(word, wordFrequency.get(word) + 1)
+                wordFrequency.put(word, wordFrequency.get(word) + multiplier)
             } else {
-                wordFrequency.put(word, 1)
+                wordFrequency.put(word, multiplier)
             }
         }
 
