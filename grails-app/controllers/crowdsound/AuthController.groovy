@@ -25,6 +25,7 @@ class AuthController {
     }
 
     def authHost() {
+        println "authorizing..."
         String partyCode = params.code
 
         if (!partyCode) {
