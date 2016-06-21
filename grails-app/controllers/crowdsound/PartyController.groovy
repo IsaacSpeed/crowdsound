@@ -157,16 +157,21 @@ class PartyController {
     }
 
     private HashMap<String, Integer> getWordFrequency(ArrayList<String> words) {
-        final int multiplier = 20
+        final int total = 1000
 
         HashMap<String, Integer> wordFrequency = new HashMap<String, Integer>();
 
         for (String word : words) {
             if (wordFrequency.get(word.replaceAll("\\s",""))) {
-                wordFrequency.put(word.replaceAll("\\s",""), wordFrequency.get(word.replaceAll("\\s","")) + multiplier)
+                wordFrequency.put(word.replaceAll("\\s",""), wordFrequency.get(word.replaceAll("\\s","")) + 1)
             } else {
-                wordFrequency.put(word.replaceAll("\\s",""), multiplier)
+                wordFrequency.put(word.replaceAll("\\s",""), 1)
             }
+        }
+
+        wordFrequency.each {k, v ->
+            v = total * (v / words.size()) as int
+            wordFrequency.put(k, v)
         }
 
         return wordFrequency
