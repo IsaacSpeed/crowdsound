@@ -21,6 +21,5 @@ class User {
     }
 
     static constraints = {
-        code unique: true
     }
 }
