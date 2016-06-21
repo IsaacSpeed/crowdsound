@@ -56,9 +56,9 @@
             var color = d3.scale.linear()
                 .domain([0, 1, 2, 3, 4, 5, 6, 10, 15, 20, 100])
                 .range(["#ddd", "#ccc", "#bbb", "#aaa", "#999", "#888", "#777", "#666", "#555", "#444", "#333", "#222"]);
-
+            var sizeLength = 500;
             d3.layout.cloud()
-                .size([500,500])
+                .size([sizeLength,sizeLength])
                 .words(cloudlist)
                 .rotate(0)
                 .fontSize(function(d) {
@@ -70,10 +70,10 @@
             function draw(words) {
                 d3.select("body").append("svg")
                     .attr("class", "wordcloud")
-                    .attr("width", d3.layout.size()[0])
-                    .attr("height", d3.layout.size()[1])
+                    .attr("width", sizeLength)
+                    .attr("height", sizeLength)
                     .append("g")
-                    .attr("transform", "translate(" + d3.layout.size()[0] / 2 + "," + d3.layout.size()[1] / 2 + ")")
+                    .attr("transform", "translate(" + sizeLength / 2 + "," + sizeLength / 2 + ")")
                     .selectAll("text")
                     .data(words)
                     .enter().append("text")
