@@ -155,8 +155,8 @@
             function draw(words) {
                 d3.select("body").append("svg")
                     .attr("class", "wordcloud")
-                    .attr("width", d3.layout.size()[0])
-                    .attr("height", d3.layout.size()[1])
+                    .attr("width", sizeLength)
+                    .attr("height", sizeLength)
                     .append("g")
                     .attr("transform", "translate(" + sizeLength / 2 + "," + sizeLength / 2 + ")")
                     .selectAll("text")
