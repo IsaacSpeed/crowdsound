@@ -2644,7 +2644,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		/* Header */
 
 			#header {
-				padding: 3em 1em 3em 1em ;
+				padding: 3em 0em 3em 0em ;
 				max-height: 15%;
 			}
 
@@ -2736,7 +2736,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		/* Header */
 
 			#header {
-				padding: 4em 3em 4em 3em ;
+				padding: 4em .5em 4em .5em ;
 			}
 
 				#header .actions {
@@ -2807,7 +2807,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		/* Header */
 
 			#header {
-				padding: 4em 2em 4em 2em ;
+				padding: 4em .5em 4em .5em ;
 			}
 
 				#header br {
@@ -2856,7 +2856,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		/* Header */
 
 			#header {
-				padding: 3em 1em 3em 1em ;
+				padding: 3em 0em 3em 0em ;
 			}
 
 		/* Footer */
