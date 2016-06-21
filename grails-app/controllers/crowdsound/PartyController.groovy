@@ -177,9 +177,9 @@ class PartyController {
             } else if (percent > 50) {
                 v = 40
             } else if (percent > 35) {
-                v = 20
+                v = 30
             } else {
-                v = 7
+                v = 20
             }
 
             wordFrequency.put(k, v)
