@@ -12,7 +12,7 @@ class UserController {
         String artists = params.a1 + ", " + params.a2 + ", " + params.a3 + ", " + params.a4 + ", " + params.a5
         List genres = params.genres
         int admin = 0
-        User u = new User(code, nickname, artists, genres, admin)
+        User u = new User(code, nickname, artists, genres.join(","), admin)
         u.save()
 
         Party party = Party.findByCode(params.partyCode)
