@@ -72,7 +72,7 @@ class AuthController {
         }
 
         SpotifyWrapper wrapper = new SpotifyWrapper();
-        wrapper.setAccessToken(Auth.findByPartyCode(party.code).authorize())
+        wrapper.setAccessToken(Auth.findByPartyCode(partyCode).authorize())
         List availableGenres = wrapper.getAvailableGenres();
         println availableGenres
 
