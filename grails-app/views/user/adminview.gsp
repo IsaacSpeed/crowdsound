@@ -151,7 +151,7 @@
                                 .domain([0,1,2,3,4,5,6,10,15,20,100])
                                 .range(["#ddd", "#ccc", "#bbb", "#aaa", "#999", "#888", "#777", "#666", "#555", "#444", "#333", "#222"]);
 
-                        d3.layout.cloud().size([800, 300])
+                        d3.layout.cloud()
                                 .words(cloudlist)
                                 .rotate(0)
                                 .fontSize(function(d) { return d.size; })
@@ -160,8 +160,8 @@
 
                         function draw(words) {
                             d3.select("body").append("svg")
-                                    .attr("width", 850)
-                                    .attr("height", 350)
+                                    .attr("width", 100%)
+                                    .attr("height", 500)
                                     .attr("class", "wordcloud main style2")
                                     .append("g")
                                     // without the transform, words words would get cutoff to the left and top, they would
