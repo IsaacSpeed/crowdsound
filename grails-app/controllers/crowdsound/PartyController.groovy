@@ -162,10 +162,10 @@ class PartyController {
         HashMap<String, Integer> wordFrequency = new HashMap<String, Integer>();
 
         for (String word : words) {
-            if (wordFrequency.get(word)) {
-                wordFrequency.put(word, wordFrequency.get(word) + multiplier)
+            if (wordFrequency.get(word.replaceAll("\\s",""))) {
+                wordFrequency.put(word.replaceAll("\\s",""), wordFrequency.get(word.replaceAll("\\s","")) + multiplier)
             } else {
-                wordFrequency.put(word, multiplier)
+                wordFrequency.put(word.replaceAll("\\s",""), multiplier)
             }
         }
 
