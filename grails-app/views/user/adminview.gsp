@@ -62,6 +62,7 @@
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     alert(xhr.responseText);
                     frequency_list = xhr.responseText;
+
                 }
             }
         }
