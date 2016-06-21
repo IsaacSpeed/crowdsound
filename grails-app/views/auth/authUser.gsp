@@ -50,7 +50,7 @@
 <section id="header">
     <div class="inner">
         <h3>Your party code is:</h3>
-        <h1><strong>${params.userCode}</strong></h1>
+        <h1><strong>${code}</strong></h1>
     </div>
 </section>
 <section id="artistGenreChoice">

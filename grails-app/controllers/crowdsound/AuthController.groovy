@@ -20,6 +20,8 @@ class AuthController {
         } else {
             println party.artists
         }
+
+        [partyCode: code]
     }
 
     def authHost() {

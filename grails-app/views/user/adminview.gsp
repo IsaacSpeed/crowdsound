@@ -44,7 +44,7 @@
 
             function processRequest(e) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    alert(xhr.responsetext);
+                    alert("Response: " + xhr.responsetext);
                     return (xhr.responseText === "true");
                 }
             }
