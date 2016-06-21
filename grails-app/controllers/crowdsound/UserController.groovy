@@ -12,12 +12,14 @@ class UserController {
         String artists = params.a1 + ", " + params.a2 + ", " + params.a3 + ", " + params.a4 + ", " + params.a5
         List genres = [params.genres].flatten()
         int admin = 0
-        User u = new User(code, nickname, artists, genres.join(","), admin)
-        u.save()
-        println u.errors.allErrors
+
 
         Party party = Party.findByCode(params.partyCode)
         if (party) {
+            User u = new User(code, nickname ?: "Anonymous", artists, genres.join(","), admin)
+            u.save()
+            println u.errors.allErrors
+
             SpotifyWrapper wrapper = new SpotifyWrapper()
             Auth auth = Auth.findByPartyCode(party.code)
             wrapper.setAccessToken(auth.authorize())
