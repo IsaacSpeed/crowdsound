@@ -84,7 +84,9 @@
                             </div>
                         </div>
                         <g:actionSubmit value="Submit" action="adminview"/>
+                        <br/>
                     </g:form>
+
                 </div>
             </div>
         </div>

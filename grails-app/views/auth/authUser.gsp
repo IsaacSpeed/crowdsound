@@ -84,6 +84,7 @@
                             </div>
                         </div>
                         <g:actionSubmit value="Submit" action="partyview"/>
+                        <br/>
                     </g:form>
                 </div>
             </div>
