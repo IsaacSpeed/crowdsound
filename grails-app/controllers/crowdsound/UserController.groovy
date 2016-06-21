@@ -34,11 +34,7 @@ class UserController {
             if (a4Id) party.addArtist(a4Id)
             if (a5Id) party.addArtist(a5Id)
 
-            if (params.genre1) party.addGenre(params.genre1)
-            if (params.genre2) party.addGenre(params.genre2)
-            if (params.genre3) party.addGenre(params.genre3)
-            if (params.genre4) party.addGenre(params.genre4)
-            if (params.genre5) party.addGenre(params.genre5)
+            if (params.genres) genres.each { party.addGenre(it) }
 
             party.save()
 

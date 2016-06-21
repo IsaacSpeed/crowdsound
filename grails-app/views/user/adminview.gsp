@@ -46,8 +46,7 @@
         }
 
         function reloadPlaylist() {
-            var frameContent = $("#spotifyPlayer").content;
-            $("#spotifyPlayer").content = frameContent;
+            document.getElementById('spotifyPlayer').src = document.getElementById('spotifyPlayer').src
         }
 
         function getGenresAndArtistsFrequency() {
