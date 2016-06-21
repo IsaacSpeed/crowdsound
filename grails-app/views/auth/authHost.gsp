@@ -26,7 +26,7 @@
 
                         <h3 style="margin-top: 10px"><strong>Enter up to 5 of each:</strong></h3>
                         <div style="width: 100%; display: inline-flex; margin-top: -30px">
-                            <div style="width: 50%; margin-right: 50px; margin-left: 50px">
+                            <div style="width: 50%; margin-right: 25px; margin-left: 25px">
                                 <p>Artists</p>
                                 <g:textField name="artist1"/><br/>
                                 <g:textField name="artist2"/><br/>
@@ -35,7 +35,7 @@
                                 <g:textField name="artist5"/><br/>
                             </div>
 
-                            <div style="width: 50%; margin-right: 50px; margin-left: 50px">
+                            <div style="width: 50%; margin-right: 25px; margin-left: 25px">
                                 <p>Genres</p>
                                 <g:select name="genres" style="height: 435px"
                                           noSelection="${['null':'Select Genres...']}"
@@ -44,7 +44,9 @@
                                 <g:hiddenField name="partyCode" value="${partyCode}"/>
                             </div>
                         </div>
+                        <div style="text-align: center">
                         <g:actionSubmit value="Submit" action="adminview"/>
+                        </div>
                         <br/>
                     </g:form>
                 </div>

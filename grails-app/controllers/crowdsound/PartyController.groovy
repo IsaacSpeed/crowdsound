@@ -25,7 +25,7 @@ class PartyController {
 
                 render "Party $partyCode has started!"
 
-                while (party.isStarted) {
+                while (party.isStarted && party) {
                     int duration = party.addSong()
 
                     if (params.isPresentation) sleep(30000)
