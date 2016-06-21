@@ -76,7 +76,7 @@
                             <div>
                                 <p>Genres</p>
                                 <g:select name="genres" size="7"
-                                          noSelection="${['null':'Select One...']}"
+                                          noSelection="${['null':'Select Genres...']}"
                                           from='${availableGenres}'
                                           multiple="true"/>
                                 <g:hiddenField name="partyCode" value="${partyCode}"/>

@@ -75,11 +75,10 @@
 
                             <div>
                                 <p>Genres</p>
-                                <g:textField name="genre1"/><br/>
-                                <g:textField name="genre2"/><br/>
-                                <g:textField name="genre3"/><br/>
-                                <g:textField name="genre4"/><br/>
-                                <g:textField name="genre5"/><br/>
+                                <g:select name="genres" size="7"
+                                          noSelection="${['null':'Select Genres...']}"
+                                          from='${availableGenres}'
+                                          multiple="true"/>
                                 <g:hiddenField name="partyCode" value="${partyCode}"/>
                             </div>
                         </div>
