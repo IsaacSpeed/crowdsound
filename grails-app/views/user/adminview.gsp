@@ -56,7 +56,7 @@
             xhr.open('GET', 'http://crowdsound.us/party/getGenresAndArtistsFrequency?partyCode=${partyCode}', true);
             xhr.send();
 
-            xhr.onreadystatechange = processRequest;
+            xhr.onreadystatechange = processRequest();
 
             function processRequest(e) {
                 if (xhr.readyState == 4 && xhr.status == 200) {
@@ -144,7 +144,7 @@
             <div class="row 150%">
                 <div class="6u 12u$(medium)">
                     <script>
-
+                        getGenresAndArtistsFrequency()
                         var cloudlist = JSON.parse(frequency_list).word_freq;
                         var color = d3.scale.linear()
                                 .domain([0,1,2,3,4,5,6,10,15,20,100])
