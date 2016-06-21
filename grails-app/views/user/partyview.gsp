@@ -8,7 +8,9 @@
 
     <script>
         function reloadPlaylist() {
-            document.getElementById('spotifyPlayer').src = document.getElementById('spotifyPlayer').src
+            document.getElementById('spotifyPlayer').src = document.getElementById('spotifyPlayer').src;
+            $("svg").remove();
+            doWordCloud();
         }
 
         function getGenresAndArtistsFrequency() {
@@ -39,7 +41,7 @@
             <div class="row 150%">
                 <div class="6u 12u$(medium)">
                     <!-- todo make this occur on an interval -->
-                    <button id="refreshPlaylist" onclick="reloadPlaylist()">Refresh playlist</button>
+                    <button id="refreshPlaylist" onclick="reloadPlaylist()">Refresh</button>
                     <iframe id="spotifyPlayer" src="https://embed.spotify.com/?uri=spotify:user:${userId}:playlist:${playlistId}&theme=white" width="100%" height="300px" frameborder="0" allowtransparency="true"></iframe>
                 </div>
             </div>
@@ -48,21 +50,25 @@
 </section>
 <section id="partyViewSection">
     <script>
-        var frequency_list = getGenresAndArtistsFrequency();
-        var cloudlist = JSON.parse(frequency_list).word_freq;
-        var color = d3.scale.linear()
-                .domain([0,1,2,3,4,5,6,10,15,20,100])
+        function doWordCloud() {
+            var frequency_list = getGenresAndArtistsFrequency();
+            var cloudlist = JSON.parse(frequency_list).word_freq;
+            alert(JSON.parse(frequency_list).word_freq);
+            var color = d3.scale.linear()
+                .domain([0, 1, 2, 3, 4, 5, 6, 10, 15, 20, 100])
                 .range(["#ddd", "#ccc", "#bbb", "#aaa", "#999", "#888", "#777", "#666", "#555", "#444", "#333", "#222"]);
 
-        d3.layout.cloud()
+            d3.layout.cloud()
                 .words(cloudlist)
                 .rotate(0)
-                .fontSize(function(d) { return d.size; })
+                .fontSize(function(d) {
+                    return d.size;
+                })
                 .on("end", draw)
                 .start();
 
-        function draw(words) {
-            d3.select("body").append("svg")
+            function draw(words) {
+                d3.select("body").append("svg")
                     .attr("class", "wordcloud")
                     .attr("width", $(document).width())
                     .attr("height", 800)
@@ -73,12 +79,19 @@
                     .selectAll("text")
                     .data(words)
                     .enter().append("text")
-                    .style("font-size", function(d) { return d.size + "px"; })
-                    .style("fill", function(d, i) { return color(i); })
+                    .style("font-size", function(d) {
+                        return d.size + "px";
+                    })
+                    .style("fill", function(d, i) {
+                        return color(i);
+                    })
                     .attr("transform", function(d) {
                         return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
                     })
-                    .text(function(d) { return d.text; });
+                    .text(function(d) {
+                        return d.text;
+                    });
+            }
         }
     </script>
 </section><!-- Footer -->

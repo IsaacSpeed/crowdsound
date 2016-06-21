@@ -46,7 +46,7 @@
         }
 
         function reloadPlaylist() {
-            document.getElementById('spotifyPlayer').src = document.getElementById('spotifyPlayer').src
+            document.getElementById('spotifyPlayer').src = document.getElementById('spotifyPlayer').src;
             $("svg").remove();
             doWordCloud();
         }
@@ -125,7 +125,7 @@
                     <button id="start" style="float: left">Start the party!</button>
                     <button id="stop" style="float: left">Pause Queueing</button>
                     <!-- todo make this occur on an interval -->
-                    <button id="refreshPlaylist" onclick="reloadPlaylist()">Refresh playlist</button>
+                    <button id="refreshPlaylist" onclick="reloadPlaylist()">Refresh</button>
                     <button id="end" style="float: right">END PARTY</button>
                     <iframe id="spotifyPlayer" src="https://embed.spotify.com/?uri=spotify:user:${userId}:playlist:${playlistId}&theme=white" width="100%" height="300px" frameborder="0" allowtransparency="true"></iframe>
                 </div>
