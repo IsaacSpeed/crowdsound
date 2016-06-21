@@ -37,7 +37,7 @@
 
                         <div>
                             <p>Genres</p>
-                            <g:select name="genres"
+                            <g:select name="genres" style="height: 435px"
                                       noSelection="${['null':'Select Genres...']}"
                                       from='${availableGenres}'
                                       multiple="true"/>
