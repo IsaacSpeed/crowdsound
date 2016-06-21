@@ -30,13 +30,14 @@ class AuthController {
 
     def authHost() {
         println "authorizing..."
-        String partyCode = params.code
+        String partyCode
+        String authCode = params.code
 
-        if (!partyCode) {
+        if (!authCode) {
             render "Please log in."
         }
 
-        Auth auth = new Auth(partyCode)
+        Auth auth = new Auth(authCode)
 
         // check to see if the user is already in the database
         if (Auth.findByUserId(auth.userId)) {
@@ -76,6 +77,7 @@ class AuthController {
         List availableGenres = wrapper.getAvailableGenres();
         println availableGenres
 
+        println partyCode
         [partyCode: partyCode, availableGenres: availableGenres, username:auth.userId]
     }
 
