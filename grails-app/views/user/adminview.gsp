@@ -127,7 +127,7 @@
                     <h1>Artists:</h1>
                     <script>
 
-                        var frequency_list = [{"text":"Kanye West","size":40}];
+                        var frequency_list = [{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()},{"text":"Kanye West","size":100*Math.random()}];
 
 
                         var color = d3.scale.linear()
